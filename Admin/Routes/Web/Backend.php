@@ -6,6 +6,17 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
+    '^.*/survey.*$' => [
+        [
+            'dest'       => '\Modules\Surveys\Controller\BackendController:setUpBackend',
+            'verb'       => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::SURVEY_ANSWER,
+            ],
+        ],
+    ],
     '^.*/survey/list.*$' => [
         [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
@@ -13,7 +24,7 @@ return [
             'permission' => [
                 'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
-                'state' => PermissionState::SURVEY,
+                'state' => PermissionState::SURVEY_TEMPLATE,
             ],
         ],
     ],
@@ -24,18 +35,29 @@ return [
             'permission' => [
                 'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::CREATE,
-                'state' => PermissionState::SURVEY,
+                'state' => PermissionState::SURVEY_TEMPLATE,
             ],
         ],
     ],
-    '^.*/survey/profile.*$' => [
+    '^.*/survey/edit.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysProfile',
+            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysEdit',
             'verb' => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::MODULE_NAME,
                 'type'  => PermissionType::READ,
-                'state' => PermissionState::SURVEY,
+                'state' => PermissionState::SURVEY_TEMPLATE,
+            ],
+        ],
+    ],
+    '^.*/survey(\?.*|$)$' => [
+        [
+            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysSurvey',
+            'verb' => RouteVerb::GET,
+            'permission' => [
+                'module' => BackendController::MODULE_NAME,
+                'type'  => PermissionType::READ,
+                'state' => PermissionState::SURVEY_ANSWER,
             ],
         ],
     ],

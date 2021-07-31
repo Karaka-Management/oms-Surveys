@@ -2,7 +2,7 @@
 /**
  * Orange Management
  *
- * PHP Version 7.4
+ * PHP Version 8.0
  *
  * @package   Modules\Surveys\Models
  * @copyright Dennis Eichhorn
@@ -17,20 +17,28 @@ namespace Modules\Surveys\Models;
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Permision state enum.
+ * Task status enum.
  *
  * @package Modules\Surveys\Models
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-abstract class PermissionState extends Enum
+abstract class SurveyElementType extends Enum
 {
-    public const SURVEY_TEMPLATE = 1;
+    public const HEADLINE = 1;
 
-    public const SURVEY_ANSWER = 2;
+    public const DROPDOWN = 2;
 
-    public const SURVEY_PUBLIC_STATISTICS = 3;
+    public const CHECKBOX = 3;
 
-    public const SURVEY_ADMIN_STATISTICS = 4;
+    public const RADIO = 4;
+
+    public const TEXTFIELD = 5;
+
+    public const TEXTAREA = 6;
+
+    public const NUMERIC = 7;
+
+    public const DATE = 8;
 }

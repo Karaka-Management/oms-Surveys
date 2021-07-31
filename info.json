@@ -18,6 +18,7 @@
     "directory": "Surveys",
     "dependencies": {
         "Admin": "1.0.0",
+        "Tag": "1.0.0",
         "Tools": "1.0.0"
     },
     "providing": {

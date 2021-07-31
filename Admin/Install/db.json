@@ -1,0 +1,237 @@
+{
+    "survey_template": {
+        "name": "survey_template",
+        "fields": {
+            "survey_template_id": {
+                "name": "survey_template_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_virtual": {
+                "name": "survey_template_virtual",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "survey_template_status": {
+                "name": "survey_template_status",
+                "type": "TINYINT",
+                "null": false
+            },
+            "survey_template_public_result": {
+                "name": "survey_template_public_result",
+                "type": "TINYINT",
+                "null": false
+            },
+            "survey_template_start": {
+                "name": "survey_template_start",
+                "type": "DATETIME",
+                "null": true
+            },
+            "survey_template_end": {
+                "name": "survey_template_end",
+                "type": "DATETIME",
+                "null": true
+            },
+            "survey_template_created_by": {
+                "name": "survey_template_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "survey_template_created_at": {
+                "name": "survey_template_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    },
+    "survey_template_l11n": {
+        "name": "survey_template_l11n",
+        "fields": {
+            "survey_template_l11n_id": {
+                "name": "survey_template_l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_l11n_title": {
+                "name": "survey_template_l11n_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "survey_template_l11n_description": {
+                "name": "survey_template_l11n_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "survey_template_l11n_description_plain": {
+                "name": "survey_template_l11n_description_plain",
+                "type": "TEXT",
+                "null": false
+            },
+            "survey_template_l11n_template": {
+                "name": "survey_template_l11n_template",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "survey_template",
+                "foreignKey": "survey_template_id"
+            },
+            "survey_template_l11n_language": {
+                "name": "survey_template_l11n_language",
+                "type": "VARCHAR(2)",
+                "default": null,
+                "null": true,
+                "foreignTable": "language",
+                "foreignKey": "language_639_1"
+            }
+        }
+    },
+    "survey_template_tag": {
+        "name": "survey_template_tag",
+        "fields": {
+            "survey_template_tag_id": {
+                "name": "survey_template_tag_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_tag_dst": {
+                "name": "survey_template_tag_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "survey_template",
+                "foreignKey": "survey_template_id"
+            },
+            "survey_template_tag_src": {
+                "name": "survey_template_tag_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "tag",
+                "foreignKey": "tag_id"
+            }
+        }
+    },
+    "survey_template_element": {
+        "name": "survey_template_element",
+        "fields": {
+            "survey_template_element_id": {
+                "name": "survey_template_element_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_element_type": {
+                "name": "survey_template_element_type",
+                "type": "TINYINT",
+                "null": false
+            },
+            "survey_template_element_optional": {
+                "name": "survey_template_element_optional",
+                "type": "TINYINT(1)",
+                "null": false
+            },
+            "survey_template_element_order": {
+                "name": "survey_template_element_order",
+                "type": "INT",
+                "null": false
+            },
+            "survey_template_element_values": {
+                "name": "survey_template_element_values",
+                "type": "TEXT",
+                "null": false
+            },
+            "survey_template_element_template": {
+                "name": "survey_template_element_template",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "survey_template",
+                "foreignKey": "survey_template_id"
+            }
+        }
+    },
+    "survey_template_element_l11n": {
+        "name": "survey_template_element_l11n",
+        "fields": {
+            "survey_template_element_l11n_id": {
+                "name": "survey_template_element_l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_element_l11n_text": {
+                "name": "survey_template_element_l11n_text",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "survey_template_element_l11n_description": {
+                "name": "survey_template_element_l11n_description",
+                "type": "TEXT",
+                "null": false
+            },
+            "survey_template_element_l11n_description_plain": {
+                "name": "survey_template_element_l11n_description_plain",
+                "type": "TEXT",
+                "null": false
+            },
+            "survey_template_element_l11n_element": {
+                "name": "survey_template_element_l11n_element",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "survey_template_element",
+                "foreignKey": "survey_template_element_id"
+            },
+            "survey_template_element_l11n_language": {
+                "name": "survey_template_element_l11n_language",
+                "type": "VARCHAR(2)",
+                "default": null,
+                "null": true,
+                "foreignTable": "language",
+                "foreignKey": "language_639_1"
+            }
+        }
+    },
+    "survey_template_element_label_l11n": {
+        "name": "survey_template_element_label_l11n",
+        "fields": {
+            "survey_template_element_label_l11n_id": {
+                "name": "survey_template_element_label_l11n_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_element_label_l11n_title": {
+                "name": "survey_template_element_label_l11n_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "survey_template_element_label_l11n_order": {
+                "name": "survey_template_element_label_l11n_order",
+                "type": "INT",
+                "null": false
+            },
+            "survey_template_element_label_l11n_element": {
+                "name": "survey_template_element_label_l11n_element",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "survey_template_element",
+                "foreignKey": "survey_template_element_id"
+            },
+            "survey_template_element_label_l11n_language": {
+                "name": "survey_template_element_label_l11n_language",
+                "type": "VARCHAR(2)",
+                "default": null,
+                "null": true,
+                "foreignTable": "language",
+                "foreignKey": "language_639_1"
+            }
+        }
+    }
+}
