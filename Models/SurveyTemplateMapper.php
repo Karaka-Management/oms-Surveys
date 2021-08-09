@@ -74,6 +74,12 @@ final class SurveyTemplateMapper extends DataMapperAbstract
             'self'     => 'survey_template_tag_dst',
             'external' => 'survey_template_tag_src',
         ],
+        'media'        => [
+            'mapper'   => MediaMapper::class,
+            'table'    => 'survey_template_media',
+            'external' => 'survey_template_media_dst',
+            'self'     => 'survey_template_media_src',
+        ],
     ];
 
     /**

@@ -48,6 +48,32 @@
             }
         }
     },
+    "survey_template_media": {
+        "name": "survey_template_media",
+        "fields": {
+            "survey_template_media_id": {
+                "name": "survey_template_media_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "survey_template_media_src": {
+                "name": "survey_template_media_src",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "survey_template",
+                "foreignKey": "survey_template_id"
+            },
+            "survey_template_media_dst": {
+                "name": "survey_template_media_dst",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "media",
+                "foreignKey": "media_id"
+            }
+        }
+    },
     "survey_template_l11n": {
         "name": "survey_template_l11n",
         "fields": {

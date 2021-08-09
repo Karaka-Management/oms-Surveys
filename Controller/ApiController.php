@@ -25,6 +25,7 @@ use Modules\Surveys\Models\SurveyTemplateElementMapper;
 use Modules\Surveys\Models\SurveyTemplateMapper;
 use Modules\Surveys\Models\SurveyStatus;
 use Modules\Surveys\Models\SurveyElementType;
+use Modules\Media\Models\NullMedia;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
@@ -132,6 +133,26 @@ final class ApiController extends Controller
                 } else {
                     $template->addTag(new NullTag((int) $tag['id']));
                 }
+            }
+        }
+
+        if (!empty($uploadedFiles = $request->getFiles() ?? [])) {
+            $uploaded = $this->app->moduleManager->get('Media')->uploadFiles(
+                [''],
+                $uploadedFiles,
+                $request->header->account,
+                __DIR__ . '/../../../Modules/Media/Files/Modules/Surveys',
+                '/Modules/Surveys',
+            );
+
+            foreach ($uploaded as $media) {
+                $template->addMedia($media);
+            }
+        }
+
+        if (!empty($mediaFiles = $request->getDataJson('media') ?? [])) {
+            foreach ($mediaFiles as $media) {
+                $template->addMedia(new NullMedia($media));
             }
         }
 

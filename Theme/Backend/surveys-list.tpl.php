@@ -127,20 +127,22 @@ echo $this->getData('nav')->render(); ?>
                             <i class="filter fa fa-filter"></i>
                         </label>
                 <tbody>
-                <?php if (!empty($parentPath)) : $url = UriFactory::build('{/prefix}survey/list?path=' . $parentPath); ?>
+                <?php if (!empty($parentPath)) :
+                    $url = UriFactory::build('{/prefix}survey/list?path=' . $parentPath);
+                ?>
                     <tr tabindex="0" data-href="<?= $url; ?>">
                         <td>
                         <td data-label="<?= $this->getHtml('Type'); ?>"><a href="<?= $url; ?>"><i class="fa fa-folder-open-o"></i></a>
-                        <td data-label="<?= $this->getHtml('Name'); ?>"><a href="<?= $url; ?>">..
-                        </a>
+                        <td data-label="<?= $this->getHtml('Name'); ?>"><a href="<?= $url; ?>">..</a>
                         <td>
                         <td>
                         <td>
                         <td>
                 <?php endif; ?>
-            <?php $count = 0; foreach ($collections as $key => $value) : ++$count;
-                $url     = UriFactory::build('{/prefix}survey/list?path=' . \rtrim($value->getVirtualPath(), '/') . '/' . $value->name);
-            ?>
+                <?php $count = 0;
+                foreach ($collections as $key => $value) : ++$count;
+                $url = UriFactory::build('{/prefix}survey/list?path=' . \rtrim($value->getVirtualPath(), '/') . '/' . $value->name);
+                ?>
                 <tr data-href="<?= $url; ?>">
                     <td><label class="checkbox" for="surveyList-<?= $key; ?>">
                                 <input type="checkbox" id="surveyList-<?= $key; ?>" name="surveyselect">
@@ -151,11 +153,11 @@ echo $this->getData('nav')->render(); ?>
                     <td>
                     <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($value->createdBy->name1); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->createdAt->format('Y-m-d')); ?></a>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
                 <?php
                     $count = 0;
-                        foreach ($surveys as $key => $value) : ++$count;
-                            $url = UriFactory::build('{/prefix}survey/edit?{?}&id=' . $value->getId()); ?>
+                    foreach ($surveys as $key => $value) : ++$count;
+                        $url = UriFactory::build('{/prefix}survey/edit?{?}&id=' . $value->getId());
                     ?>
                     <tr data-href="<?= $url; ?>">
                         <td><label class="checkbox" for="surveyList-<?= $key; ?>">
@@ -169,8 +171,8 @@ echo $this->getData('nav')->render(); ?>
                         <td><a href="<?= $url; ?>"><?= $value->createdAt->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
-                <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
-                        <?php endif; ?>
+                    <tr><td colspan="6" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                <?php endif; ?>
             </table>
             <div class="portlet-foot">
                 <a tabindex="0" class="button" href="<?= UriFactory::build($previous); ?>"><?= $this->getHtml('Previous', '0', '0'); ?></a>
