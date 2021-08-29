@@ -17,7 +17,7 @@ namespace Modules\Surveys\Models;
 use phpOMS\Stdlib\Base\Enum;
 
 /**
- * Task status enum.
+ * Survey status enum.
  *
  * @package Modules\Surveys\Models
  * @license OMS License 1.0
