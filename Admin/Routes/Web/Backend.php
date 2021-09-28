@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\Surveys\Controller\BackendController:setUpBackend',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::SURVEY_ANSWER,
             ],
@@ -34,7 +34,7 @@ return [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SURVEY_TEMPLATE,
             ],
@@ -45,7 +45,7 @@ return [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysCreate',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'  => PermissionType::CREATE,
                 'state' => PermissionState::SURVEY_TEMPLATE,
             ],
@@ -56,7 +56,7 @@ return [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysEdit',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SURVEY_TEMPLATE,
             ],
@@ -67,7 +67,7 @@ return [
             'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysSurvey',
             'verb' => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'  => PermissionType::READ,
                 'state' => PermissionState::SURVEY_ANSWER,
             ],
