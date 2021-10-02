@@ -29,6 +29,7 @@ use phpOMS\Asset\AssetType;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
+ * @codeCoverageIgnore
  */
 final class BackendController extends Controller
 {
