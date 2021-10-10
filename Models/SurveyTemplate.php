@@ -50,7 +50,7 @@ class SurveyTemplate
      *
      * Should the result of the survey be made public?
      *
-     * @var int
+     * @var bool
      * @since 1.0.0
      */
     public bool $hasPublicResult = true;
@@ -58,7 +58,7 @@ class SurveyTemplate
     /**
      * Created.
      *
-     * @var \DateTime
+     * @var \DateTimeImmutable
      * @since 1.0.0
      */
     public \DateTimeImmutable $createdAt;
@@ -156,7 +156,7 @@ class SurveyTemplate
      */
     public function getL11n() : SurveyTemplateL11n
     {
-        return $this->l11n;
+        return $this->l11n ?? new NullSurveyTemplateL11n();
     }
 
     /**
