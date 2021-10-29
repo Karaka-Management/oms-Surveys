@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Surveys\Models;
 
 use Modules\Admin\Models\AccountMapper;
-use Modules\Media\Models\CollectionMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Tag\Models\TagMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
@@ -38,14 +37,14 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'survey_template_id'            => ['name' => 'survey_template_id',          'type' => 'int',      'internal' => 'id'],
-        'survey_template_status'        => ['name' => 'survey_template_status',      'type' => 'int',      'internal' => 'status'],
+        'survey_template_id'                   => ['name' => 'survey_template_id',          'type' => 'int',      'internal' => 'id'],
+        'survey_template_status'               => ['name' => 'survey_template_status',      'type' => 'int',      'internal' => 'status'],
         'survey_template_public_result'        => ['name' => 'survey_template_public_result',      'type' => 'bool',      'internal' => 'hasPublicResult'],
-        'survey_template_start'    => ['name' => 'survey_template_start',  'type' => 'DateTime',     'internal' => 'start'],
-        'survey_template_end'      => ['name' => 'survey_template_end',    'type' => 'DateTime',     'internal' => 'end'],
-        'survey_template_virtual'       => ['name' => 'survey_template_virtual',       'type' => 'string',   'internal' => 'virtualPath'],
-        'survey_template_created_by'       => ['name' => 'survey_template_created_by',     'type' => 'int',      'internal' => 'createdBy'],
-        'survey_template_created_at'       => ['name' => 'survey_template_created_at',     'type' => 'DateTimeImmutable', 'internal' => 'createdAt'],
+        'survey_template_start'                => ['name' => 'survey_template_start',  'type' => 'DateTime',     'internal' => 'start'],
+        'survey_template_end'                  => ['name' => 'survey_template_end',    'type' => 'DateTime',     'internal' => 'end'],
+        'survey_template_virtual'              => ['name' => 'survey_template_virtual',       'type' => 'string',   'internal' => 'virtualPath'],
+        'survey_template_created_by'           => ['name' => 'survey_template_created_by',     'type' => 'int',      'internal' => 'createdBy'],
+        'survey_template_created_at'           => ['name' => 'survey_template_created_at',     'type' => 'DateTimeImmutable', 'internal' => 'createdAt'],
     ];
 
     /**

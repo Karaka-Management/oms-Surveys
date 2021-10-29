@@ -15,17 +15,19 @@ declare(strict_types=1);
 namespace Modules\Surveys\Controller;
 
 use Modules\Admin\Models\NullAccount;
-use Modules\Tag\Models\NullTag;
+use Modules\Media\Models\NullMedia;
+use Modules\Surveys\Models\SurveyAnswer;
+use Modules\Surveys\Models\SurveyElementType;
+use Modules\Surveys\Models\SurveyStatus;
 use Modules\Surveys\Models\SurveyTemplate;
-use Modules\Surveys\Models\SurveyTemplateL11n;
-use Modules\Surveys\Models\SurveyTemplateLabelL11n;
 use Modules\Surveys\Models\SurveyTemplateElement;
 use Modules\Surveys\Models\SurveyTemplateElementL11n;
 use Modules\Surveys\Models\SurveyTemplateElementMapper;
+use Modules\Surveys\Models\SurveyTemplateL11n;
+use Modules\Surveys\Models\SurveyTemplateLabelL11n;
 use Modules\Surveys\Models\SurveyTemplateMapper;
-use Modules\Surveys\Models\SurveyStatus;
-use Modules\Surveys\Models\SurveyElementType;
-use Modules\Media\Models\NullMedia;
+use Modules\Tag\Models\NullTag;
+use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
@@ -33,8 +35,6 @@ use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
 use phpOMS\Utils\Parser\Markdown\Markdown;
-use phpOMS\Localization\ISO639x1Enum;
-use Modules\Surveys\Models\SurveyAnswer;
 
 /**
  * Api controller for the survey module.
@@ -138,7 +138,8 @@ final class ApiController extends Controller
 
         if (!empty($uploadedFiles = $request->getFiles() ?? [])) {
             $uploaded = $this->app->moduleManager->get('Media')->uploadFiles(
-                [''],
+                [],
+                [],
                 $uploadedFiles,
                 $request->header->account,
                 __DIR__ . '/../../../Modules/Media/Files/Modules/Surveys',

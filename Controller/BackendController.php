@@ -14,13 +14,13 @@ declare(strict_types=1);
 
 namespace Modules\Surveys\Controller;
 
+use Modules\Media\Models\CollectionMapper;
+use Modules\Surveys\Models\SurveyTemplateMapper;
+use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
-use Modules\Surveys\Models\SurveyTemplateMapper;
-use Modules\Media\Models\CollectionMapper;
-use phpOMS\Asset\AssetType;
 
 /**
  * Surveys controller class.

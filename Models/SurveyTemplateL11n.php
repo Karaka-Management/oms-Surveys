@@ -163,11 +163,11 @@ class SurveyTemplateL11n implements \JsonSerializable, ArrayableInterface
     public function toArray() : array
     {
         return [
-            'id'       => $this->id,
-            'title'    => $this->title,
+            'id'             => $this->id,
+            'title'          => $this->title,
             'description'    => $this->description,
-            'template'      => $this->template,
-            'language' => $this->language,
+            'template'       => $this->template,
+            'language'       => $this->language,
         ];
     }
 

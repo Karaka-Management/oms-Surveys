@@ -31,45 +31,45 @@ return [
     ],
     '^.*/survey/list.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
-            'verb' => RouteVerb::GET,
+            'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
+            'verb'       => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::SURVEY_TEMPLATE,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::SURVEY_TEMPLATE,
             ],
         ],
     ],
     '^.*/survey/create.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysCreate',
-            'verb' => RouteVerb::GET,
+            'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysCreate',
+            'verb'       => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::NAME,
-                'type'  => PermissionType::CREATE,
-                'state' => PermissionState::SURVEY_TEMPLATE,
+                'type'   => PermissionType::CREATE,
+                'state'  => PermissionState::SURVEY_TEMPLATE,
             ],
         ],
     ],
     '^.*/survey/edit.*$' => [
         [
-            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysEdit',
-            'verb' => RouteVerb::GET,
+            'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysEdit',
+            'verb'       => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::SURVEY_TEMPLATE,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::SURVEY_TEMPLATE,
             ],
         ],
     ],
     '^.*/survey(\?.*|$)$' => [
         [
-            'dest' => '\Modules\Surveys\Controller\BackendController:viewSurveysSurvey',
-            'verb' => RouteVerb::GET,
+            'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysSurvey',
+            'verb'       => RouteVerb::GET,
             'permission' => [
                 'module' => BackendController::NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::SURVEY_ANSWER,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::SURVEY_ANSWER,
             ],
         ],
     ],

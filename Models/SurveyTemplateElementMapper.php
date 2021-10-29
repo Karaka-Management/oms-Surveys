@@ -14,12 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Surveys\Models;
 
-use Modules\Admin\Models\AccountMapper;
-use Modules\Media\Models\CollectionMapper;
-use Modules\Media\Models\MediaMapper;
-use Modules\Tag\Models\TagMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Mapper class.
@@ -38,11 +33,11 @@ final class SurveyTemplateElementMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'survey_template_element_id'            => ['name' => 'survey_template_element_id',          'type' => 'int',      'internal' => 'id'],
-        'survey_template_element_type'        => ['name' => 'survey_template_element_type',      'type' => 'int',      'internal' => 'type'],
-        'survey_template_element_order'       => ['name' => 'survey_template_element_order',     'type' => 'int',      'internal' => 'order'],
+        'survey_template_element_id'             => ['name' => 'survey_template_element_id',          'type' => 'int',      'internal' => 'id'],
+        'survey_template_element_type'           => ['name' => 'survey_template_element_type',      'type' => 'int',      'internal' => 'type'],
+        'survey_template_element_order'          => ['name' => 'survey_template_element_order',     'type' => 'int',      'internal' => 'order'],
         'survey_template_element_optional'       => ['name' => 'survey_template_element_optional',     'type' => 'bool',      'internal' => 'isOptional'],
-        'survey_template_element_values'       => ['name' => 'survey_template_element_values',     'type' => 'Json',      'internal' => 'values'],
+        'survey_template_element_values'         => ['name' => 'survey_template_element_values',     'type' => 'Json',      'internal' => 'values'],
         'survey_template_element_template'       => ['name' => 'survey_template_element_template',     'type' => 'int',      'internal' => 'template'],
     ];
 

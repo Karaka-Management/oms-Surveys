@@ -33,12 +33,12 @@ final class SurveyTemplateL11nMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'survey_template_l11n_id'       => ['name' => 'survey_template_l11n_id',       'type' => 'int',    'internal' => 'id'],
-        'survey_template_l11n_title'    => ['name' => 'survey_template_l11n_title',    'type' => 'string', 'internal' => 'title', 'autocomplete' => true],
-        'survey_template_l11n_description'    => ['name' => 'survey_template_l11n_description',    'type' => 'string', 'internal' => 'description'],
+        'survey_template_l11n_id'                   => ['name' => 'survey_template_l11n_id',       'type' => 'int',    'internal' => 'id'],
+        'survey_template_l11n_title'                => ['name' => 'survey_template_l11n_title',    'type' => 'string', 'internal' => 'title', 'autocomplete' => true],
+        'survey_template_l11n_description'          => ['name' => 'survey_template_l11n_description',    'type' => 'string', 'internal' => 'description'],
         'survey_template_l11n_description_plain'    => ['name' => 'survey_template_l11n_description_plain',    'type' => 'string', 'internal' => 'descriptionPlain'],
-        'survey_template_l11n_template'      => ['name' => 'survey_template_l11n_template',      'type' => 'int',    'internal' => 'template'],
-        'survey_template_l11n_language' => ['name' => 'survey_template_l11n_language', 'type' => 'string', 'internal' => 'language'],
+        'survey_template_l11n_template'             => ['name' => 'survey_template_l11n_template',      'type' => 'int',    'internal' => 'template'],
+        'survey_template_l11n_language'             => ['name' => 'survey_template_l11n_language', 'type' => 'string', 'internal' => 'language'],
     ];
 
     /**
