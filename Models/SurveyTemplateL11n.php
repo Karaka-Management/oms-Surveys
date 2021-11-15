@@ -41,7 +41,7 @@ class SurveyTemplateL11n implements \JsonSerializable, ArrayableInterface
      * @var int
      * @since 1.0.0
      */
-    protected int $template = 0;
+    public int $template = 0;
 
     /**
      * Language.
@@ -106,32 +106,6 @@ class SurveyTemplateL11n implements \JsonSerializable, ArrayableInterface
     }
 
     /**
-     * Set template.
-     *
-     * @param int $template Surveys id
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setSurvey(int $template) : void
-    {
-        $this->template = $template;
-    }
-
-    /**
-     * Get template
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getSurvey() : int
-    {
-        return $this->template;
-    }
-
-    /**
      * Get language
      *
      * @return string
@@ -163,11 +137,12 @@ class SurveyTemplateL11n implements \JsonSerializable, ArrayableInterface
     public function toArray() : array
     {
         return [
-            'id'             => $this->id,
-            'title'          => $this->title,
-            'description'    => $this->description,
-            'template'       => $this->template,
-            'language'       => $this->language,
+            'id'                  => $this->id,
+            'title'               => $this->title,
+            'description'         => $this->description,
+            'descriptionPlain'    => $this->descriptionPlain,
+            'template'            => $this->template,
+            'language'            => $this->language,
         ];
     }
 

@@ -41,7 +41,7 @@ class SurveyTemplateLabelL11n implements \JsonSerializable, ArrayableInterface
      * @var int
      * @since 1.0.0
      */
-    protected int $element = 0;
+    public int $element = 0;
 
     /**
      * Order.
@@ -94,32 +94,6 @@ class SurveyTemplateLabelL11n implements \JsonSerializable, ArrayableInterface
     }
 
     /**
-     * Set element.
-     *
-     * @param int $element Surveys id
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setElement(int $element) : void
-    {
-        $this->element = $element;
-    }
-
-    /**
-     * Get element
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getElement() : int
-    {
-        return $this->element;
-    }
-
-    /**
      * Get language
      *
      * @return string
@@ -154,6 +128,7 @@ class SurveyTemplateLabelL11n implements \JsonSerializable, ArrayableInterface
             'id'           => $this->id,
             'title'        => $this->title,
             'element'      => $this->element,
+            'order'        => $this->order,
             'language'     => $this->language,
         ];
     }

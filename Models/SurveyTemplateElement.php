@@ -150,6 +150,18 @@ class SurveyTemplateElement
     }
 
     /**
+     * @param mixed $value Label value
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function addValue($value) : void
+    {
+        $this->values[] = $value;
+    }
+
+    /**
      * @return array
      *
      * @since 1.0.0
@@ -157,5 +169,29 @@ class SurveyTemplateElement
     public function getValues() : array
     {
         return $this->values;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toArray() : array
+    {
+        return [
+            'id'               => $this->id,
+            'type'             => $this->type,
+            'isOptional'       => $this->isOptional,
+            'order'            => $this->order,
+            'template'         => $this->template,
+            'labels'           => $this->labels,
+            'values'           => $this->values,
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

@@ -101,7 +101,7 @@ class SurveyTemplate
      * @var string
      * @since 1.0.0
      */
-    private string $virtualPath = '/';
+    public string $virtualPath = '/';
 
     /**
      * Tags.
@@ -187,6 +187,20 @@ class SurveyTemplate
     }
 
     /**
+     * Get tag.
+     *
+     * @param int $id Element id
+     *
+     * @return Tag
+     *
+     * @since 1.0.0
+     */
+    public function getTag(int $id) : Tag
+    {
+        return $this->tags[$id] ?? new NullTag();
+    }
+
+    /**
      * Add tag
      *
      * @param Tag $tag Tag
@@ -198,6 +212,26 @@ class SurveyTemplate
     public function addTag(Tag $tag) : void
     {
         $this->tags[] = $tag;
+    }
+
+    /**
+     * Remove Tag from list.
+     *
+     * @param int $id Tag
+     *
+     * @return bool
+     *
+     * @since 1.0.0
+     */
+    public function removeTag($id) : bool
+    {
+        if (isset($this->tags[$id])) {
+            unset($this->tags[$id]);
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -236,5 +270,46 @@ class SurveyTemplate
     public function getElements() : array
     {
         return $this->elements;
+    }
+
+    /**
+     * Add element
+     *
+     * @param SurveyTemplateElement $element Survey element to add
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
+    public function addElement(SurveyTemplateElement $element) : void
+    {
+        $this->elements[] = $element;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toArray() : array
+    {
+        return [
+            'id'              => $this->id,
+            'status'          => $this->status,
+            'hasPublicResult' => $this->hasPublicResult,
+            'createdAt'       => $this->createdAt,
+            'start'           => $this->start,
+            'end'             => $this->end,
+            'virtualPath'     => $this->virtualPath,
+            'tags'            => $this->tags,
+            'elements'        => $this->elements,
+            'media'           => $this->media,
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

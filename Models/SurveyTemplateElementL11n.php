@@ -41,7 +41,7 @@ class SurveyTemplateElementL11n implements \JsonSerializable, ArrayableInterface
      * @var int
      * @since 1.0.0
      */
-    protected int $element = 0;
+    public int $element = 0;
 
     /**
      * Language.
@@ -103,32 +103,6 @@ class SurveyTemplateElementL11n implements \JsonSerializable, ArrayableInterface
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Set element.
-     *
-     * @param int $element Surveys id
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setElement(int $element) : void
-    {
-        $this->element = $element;
-    }
-
-    /**
-     * Get element
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getElement() : int
-    {
-        return $this->element;
     }
 
     /**
