@@ -95,7 +95,7 @@ echo $this->getData('nav')->render(); ?>
                             <div class="portlet-head"><?= $this->printHtml($survey->getL11n()->title); ?></div>
                             <div class="portlet-body">
                                 <?php if (!empty($survey->getL11n()->description)) : ?>
-                                    <div class="survey-description"><?= $survey->getL11n()->description; ?></div>
+                                    <article class="survey-description"><?= $survey->getL11n()->description; ?></article>
                                 <?php endif; ?>
                                 <?php $elements = $survey->getElements();
                                     foreach ($elements as $element) {
@@ -119,7 +119,7 @@ echo $this->getData('nav')->render(); ?>
                                             echo '<div class="question-section">';
                                             echo '<div class="question">' . $this->printHtml($element->getL11n()->text) . '</div>';
                                             echo !empty($element->getL11n()->description)
-                                                ? '<div class="question-description">' . $element->getL11n()->description . '</div>'
+                                                ? '<article class="question-description">' . $element->getL11n()->description . '</article>'
                                                 : '';
                                             echo '</div>';
 
