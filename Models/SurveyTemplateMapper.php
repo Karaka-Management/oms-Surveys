@@ -17,8 +17,8 @@ namespace Modules\Surveys\Models;
 use Modules\Admin\Models\AccountMapper;
 use Modules\Media\Models\MediaMapper;
 use Modules\Tag\Models\TagMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\RelationType;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
+use phpOMS\DataStorage\Database\Mapper\ReadMapper;
 
 /**
  * Mapper class.
@@ -28,7 +28,7 @@ use phpOMS\DataStorage\Database\RelationType;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class SurveyTemplateMapper extends DataMapperAbstract
+final class SurveyTemplateMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -36,7 +36,7 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'survey_template_id'                   => ['name' => 'survey_template_id',          'type' => 'int',      'internal' => 'id'],
         'survey_template_status'               => ['name' => 'survey_template_status',      'type' => 'int',      'internal' => 'status'],
         'survey_template_public_result'        => ['name' => 'survey_template_public_result',      'type' => 'bool',      'internal' => 'hasPublicResult'],
@@ -53,7 +53,7 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string, column?:string}>
      * @since 1.0.0
      */
-    protected static array $hasMany = [
+    public const HAS_MANY = [
         'elements' => [
             'mapper'       => SurveyTemplateElementMapper::class,
             'table'        => 'survey_template_element',
@@ -64,7 +64,6 @@ final class SurveyTemplateMapper extends DataMapperAbstract
             'mapper'            => SurveyTemplateL11nMapper::class,
             'table'             => 'survey_template_l11n',
             'self'              => 'survey_template_l11n_template',
-            'conditional'       => true,
             'external'          => null,
         ],
         'tags' => [
@@ -87,7 +86,7 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'createdBy' => [
             'mapper'     => AccountMapper::class,
             'external'   => 'survey_template_created_by',
@@ -100,7 +99,7 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'survey_template';
+    public const TABLE = 'survey_template';
 
     /**
      * Created at.
@@ -108,7 +107,7 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $createdAt = 'survey_template_created_at';
+    public const CREATED_AT = 'survey_template_created_at';
 
     /**
      * Primary field name.
@@ -116,23 +115,24 @@ final class SurveyTemplateMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'survey_template_id';
+    public const PRIMARYFIELD ='survey_template_id';
 
     /**
      * Get editor doc based on virtual path.
      *
      * @param string $virtualPath Virtual path
      *
-     * @return array
+     * @return ReadMapper
      *
      * @since 1.0.0
      */
-    public static function getByVirtualPath(string $virtualPath = '/') : array
+    public static function getByVirtualPath(string $virtualPath = '/') : ReadMapper
     {
-        $depth = 2;
-        $query = self::getQuery(depth: $depth);
-        $query->where(self::$table . '_d' . $depth . '.survey_template_virtual', '=', $virtualPath);
-
-        return self::getAllByQuery($query, RelationType::ALL, $depth);
+        return self::getAll()
+            ->with('createdBy')
+            ->with('l11n')
+            ->with('tags')
+            ->with('tags/title')
+            ->where('virtualPath', $virtualPath);
     }
 }

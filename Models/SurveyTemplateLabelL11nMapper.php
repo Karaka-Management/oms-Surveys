@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Surveys\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Tag mapper class.
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class SurveyTemplateLabelL11nMapper extends DataMapperAbstract
+final class SurveyTemplateLabelL11nMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -32,7 +32,7 @@ final class SurveyTemplateLabelL11nMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'survey_template_element_label_l11n_id'           => ['name' => 'survey_template_element_label_l11n_id',       'type' => 'int',    'internal' => 'id'],
         'survey_template_element_label_l11n_title'        => ['name' => 'survey_template_element_label_l11n_title',    'type' => 'string', 'internal' => 'title', 'autocomplete' => true],
         'survey_template_element_label_l11n_element'      => ['name' => 'survey_template_element_label_l11n_element',      'type' => 'int',    'internal' => 'element'],
@@ -46,7 +46,7 @@ final class SurveyTemplateLabelL11nMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'survey_template_element_label_l11n';
+    public const TABLE = 'survey_template_element_label_l11n';
 
     /**
      * Primary field name.
@@ -54,5 +54,5 @@ final class SurveyTemplateLabelL11nMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'survey_template_element_label_l11n_id';
+    public const PRIMARYFIELD ='survey_template_element_label_l11n_id';
 }

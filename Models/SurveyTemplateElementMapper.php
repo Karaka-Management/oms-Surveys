@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Surveys\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Mapper class.
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class SurveyTemplateElementMapper extends DataMapperAbstract
+final class SurveyTemplateElementMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -32,7 +32,7 @@ final class SurveyTemplateElementMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'survey_template_element_id'             => ['name' => 'survey_template_element_id',          'type' => 'int',      'internal' => 'id'],
         'survey_template_element_type'           => ['name' => 'survey_template_element_type',      'type' => 'int',      'internal' => 'type'],
         'survey_template_element_order'          => ['name' => 'survey_template_element_order',     'type' => 'int',      'internal' => 'order'],
@@ -47,19 +47,17 @@ final class SurveyTemplateElementMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string, column?:string}>
      * @since 1.0.0
      */
-    protected static array $hasMany = [
+    public const HAS_MANY = [
         'l11n' => [
             'mapper'            => SurveyTemplateElementL11nMapper::class,
             'table'             => 'survey_template_element_l11n',
             'self'              => 'survey_template_element_l11n_element',
-            'conditional'       => true,
             'external'          => null,
         ],
         'labels' => [
             'mapper'            => SurveyTemplateLabelL11nMapper::class,
             'table'             => 'survey_template_element_label_l11n',
             'self'              => 'survey_template_element_label_l11n_element',
-            'conditional'       => true,
             'external'          => null,
         ],
     ];
@@ -70,7 +68,7 @@ final class SurveyTemplateElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'survey_template_element';
+    public const TABLE = 'survey_template_element';
 
     /**
      * Created at.
@@ -78,7 +76,7 @@ final class SurveyTemplateElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $createdAt = 'survey_template_element_created_at';
+    public const CREATED_AT = 'survey_template_element_created_at';
 
     /**
      * Primary field name.
@@ -86,5 +84,5 @@ final class SurveyTemplateElementMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'survey_template_element_id';
+    public const PRIMARYFIELD ='survey_template_element_id';
 }

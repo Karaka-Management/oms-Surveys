@@ -70,7 +70,10 @@ final class BackendController extends Controller
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
 
         $path    = \str_replace('+', ' ', (string) ($request->getData('path') ?? '/'));
-        $surveys = SurveyTemplateMapper::with('language', $response->getLanguage())::getByVirtualPath($path);
+        $surveys = SurveyTemplateMapper::getByVirtualPath($path)
+            ->where('tags/title/language', $response->getLanguage())
+            ->where('l11n/language', $response->getLanguage())
+            ->execute();
 
         list($collection, $parent) = CollectionMapper::getCollectionsByPath($path);
 
@@ -122,7 +125,21 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
 
-        $survey = SurveyTemplateMapper::get($request->getData('id'));
+        $survey = SurveyTemplateMapper::get()
+            ->with('createdBy')
+            ->with('elements')
+            ->with('elements/l11n')
+            ->with('elements/labels')
+            ->with('media')
+            ->with('l11n')
+            ->with('tags')
+            ->with('tags/title')
+            ->where('id', $request->getData('id'))
+            ->where('tags/title/language', $response->getLanguage())
+            ->where('l11n/language', $response->getLanguage())
+            ->where('elements/l11n/language', $response->getLanguage())
+            ->where('elements/labels/language', $response->getLanguage())
+            ->execute();
         $view->addData('survey', $survey);
 
         return $view;
