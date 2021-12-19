@@ -64,6 +64,7 @@ final class SurveyTemplateMapper extends DataMapperFactory
             'mapper'            => SurveyTemplateL11nMapper::class,
             'table'             => 'survey_template_l11n',
             'self'              => 'survey_template_l11n_template',
+            'conditional'       => true,
             'external'          => null,
         ],
         'tags' => [
