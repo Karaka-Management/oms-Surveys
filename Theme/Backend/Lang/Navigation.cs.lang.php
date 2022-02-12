@@ -13,5 +13,5 @@
 declare(strict_types=1);
 
 return ['Navigation' => [
-    'Surveys' => 'Surveys',
+    'Surveys' => 'Průzkumy',
 ]];

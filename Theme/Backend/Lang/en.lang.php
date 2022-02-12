@@ -2,9 +2,9 @@
 /**
  * Orange Management
  *
- * PHP Version 7.4
+ * PHP Version 8.0
  *
- * @package   Modules\Surveys
+ * @package   Modules\Localization
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -22,11 +22,13 @@ return ['Surveys' => [
     'Date'           => 'Date',
     'Description'    => 'Description',
     'Dropdown'       => 'Dropdown',
+    'Element'        => '',
     'End'            => 'End',
     'Group'          => 'Group',
     'Manager'        => 'Manager',
     'Name'           => 'Name',
     'Number'         => 'Number',
+    'Preview'        => '',
     'Question'       => 'Question',
     'Questionee'     => 'Questionee',
     'Questions'      => 'Questions',
@@ -41,6 +43,7 @@ return ['Surveys' => [
     'Status'         => 'Status',
     'Survey'         => 'Survey',
     'Surveys'        => 'Surveys',
+    'Tag'            => '',
     'Text'           => 'Text',
     'Title'          => 'Title',
     'Type'           => 'Type',
