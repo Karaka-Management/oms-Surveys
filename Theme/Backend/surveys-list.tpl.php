@@ -152,7 +152,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><i class="fa fa-folder-open-o"></i></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
                     <td>
-                    <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($value->createdBy->name1); ?></a>
+                    <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->createdAt->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php
@@ -168,7 +168,7 @@ echo $this->getData('nav')->render(); ?>
                         <td>
                         <td><a href="<?= $url; ?>"><?= $value->getL11n()->title; ?></a>
                         <td>
-                        <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $value->createdBy->name1; ?></a>
+                        <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
                         <td><a href="<?= $url; ?>"><?= $value->createdAt->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
