@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 use Modules\Surveys\Controller\BackendController;
-use Modules\Surveys\Models\PermissionState;
+use Modules\Surveys\Models\PermissionCategory;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
@@ -25,7 +25,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::SURVEY_ANSWER,
+                'state'  => PermissionCategory::SURVEY_ANSWER,
             ],
         ],
     ],
@@ -36,7 +36,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::SURVEY_TEMPLATE,
+                'state'  => PermissionCategory::SURVEY_TEMPLATE,
             ],
         ],
     ],
@@ -47,7 +47,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
-                'state'  => PermissionState::SURVEY_TEMPLATE,
+                'state'  => PermissionCategory::SURVEY_TEMPLATE,
             ],
         ],
     ],
@@ -58,7 +58,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::SURVEY_TEMPLATE,
+                'state'  => PermissionCategory::SURVEY_TEMPLATE,
             ],
         ],
     ],
@@ -69,7 +69,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::SURVEY_ANSWER,
+                'state'  => PermissionCategory::SURVEY_ANSWER,
             ],
         ],
     ],
