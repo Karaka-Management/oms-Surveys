@@ -136,7 +136,7 @@ final class ApiController extends Controller
             }
         }
 
-        if (!empty($uploadedFiles = $request->getFiles() ?? [])) {
+        if (!empty($uploadedFiles = $request->getFiles())) {
             $uploaded = $this->app->moduleManager->get('Media')->uploadFiles(
                 [],
                 [],
@@ -151,7 +151,7 @@ final class ApiController extends Controller
             }
         }
 
-        if (!empty($mediaFiles = $request->getDataJson('media') ?? [])) {
+        if (!empty($mediaFiles = $request->getDataJson('media'))) {
             foreach ($mediaFiles as $media) {
                 $template->addMedia(new NullMedia($media));
             }
