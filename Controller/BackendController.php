@@ -45,7 +45,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         $head = $response->get('Content')->getData('head');
         $head->addAsset(AssetType::CSS, '/Modules/Surveys/Theme/Backend/styles.css');
@@ -63,7 +63,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysList(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-list');
@@ -98,7 +98,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
@@ -119,12 +119,13 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysEdit(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysEdit(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
 
+        /** @var \Modules\Surveys\Models\SurveyTemplate $survey */
         $survey = SurveyTemplateMapper::get()
             ->with('createdBy')
             ->with('elements')
@@ -140,6 +141,7 @@ final class BackendController extends Controller
             ->where('elements/l11n/language', $response->getLanguage())
             ->where('elements/labels/language', $response->getLanguage())
             ->execute();
+
         $view->addData('survey', $survey);
 
         return $view;
@@ -157,7 +159,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewSurveysSurvey(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewSurveysSurvey(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-survey');

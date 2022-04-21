@@ -79,7 +79,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiSurveyTemplateCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiSurveyTemplateCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateSurveyTemplateCreate($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
@@ -197,7 +197,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiSurveyTemplateElementCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiSurveyTemplateElementCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateSurveyTemplateElementCreate($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
@@ -285,7 +285,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiSurveyAnswerCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiSurveyAnswerCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateSurveyAnswerCreate($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
