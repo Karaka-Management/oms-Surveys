@@ -58,7 +58,7 @@ echo $this->getData('nav')->render(); ?>
                                     </table>
                             </div>
                             <div class="portlet-foot">
-                                <input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                                <input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>" name="create-survey">
                             </div>
                         </form>
                     </section>
@@ -78,7 +78,7 @@ echo $this->getData('nav')->render(); ?>
                                     <tr><td colspan="2"><select id="iSType" name="stype">
                                                 <option>
                                             </select>
-                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>">
+                                    <tr><td colspan="2"><input type="submit" value="<?= $this->getHtml('Add', '0', '0'); ?>" name="add-element">
                                 </table>
                             </form>
                         </div>
@@ -163,20 +163,20 @@ echo $this->getData('nav')->render(); ?>
                                              elseif ($element->type === SurveyElementType::DROPDOWN) :
                                                 $elementValues = $element->getValues();
 
-                                                echo '<select>';
+                                                echo '<select name="i' . $element->getId() . '>';
                                                 $elementLabels = \array_values($element->getLabels());
                                                 foreach ($elementValues as $key => $elementValue) : ?>
                                                     <option value="<?= $this->printHtml($elementValue); ?>"><?= $this->printHtml($elementLabels[$key]->title); ?>
                                             <?php endforeach;
                                             echo '</select>';
                                             elseif ($element->type === SurveyElementType::TEXTFIELD) : ?>
-                                                <input type="text">
+                                                <input type="text" name="i<?= $element->getId() ?>">
                                             <?php elseif ($element->type === SurveyElementType::TEXTAREA) : ?>
-                                                <textarea></textarea>
+                                                <textarea name="i<?= $element->getId() ?>"></textarea>
                                             <?php elseif ($element->type === SurveyElementType::NUMERIC) : ?>
-                                                <input type="number">
+                                                <input type="number" name="i<?= $element->getId() ?>">
                                             <?php elseif ($element->type === SurveyElementType::DATE) : ?>
-                                                <input type="datetime-local">
+                                                <input type="datetime-local" name="i<?= $element->getId() ?>">
                                             <?php endif;
                                             echo '</div>'; // closing "values-section"
                                             echo '</div>'; // closing "survey-value-element"
@@ -184,7 +184,7 @@ echo $this->getData('nav')->render(); ?>
                                 } ?>
                             </div>
                             <div class="portlet-foot">
-                                <input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>">
+                                <input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>" name="create-survey">
                             </div>
                         </form>
                     </section>
