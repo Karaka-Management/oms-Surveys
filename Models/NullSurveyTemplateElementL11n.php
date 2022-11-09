@@ -36,4 +36,12 @@ final class NullSurveyTemplateElementL11n extends SurveyTemplateElementL11n
         $this->id = $id;
         parent::__construct();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize() : mixed
+    {
+        return ['id' => $this->id];
+    }
 }
