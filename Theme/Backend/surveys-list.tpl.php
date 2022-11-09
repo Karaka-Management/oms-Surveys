@@ -29,8 +29,8 @@ $accountDir = $account->getId() . ' ' . $account->login;
 $collections = $this->getData('collections');
 $mediaPath   = \urldecode($this->getData('path') ?? '/');
 
-$previous = empty($surveys) ? '{/prefix}survey/list' : '{/prefix}survey/list?{?}&id=' . \reset($surveys)->getId() . '&ptype=p';
-$next     = empty($surveys) ? '{/prefix}survey/list' : '{/prefix}survey/list?{?}&id=' . \end($surveys)->getId() . '&ptype=n';
+$previous = empty($surveys) ? 'survey/list' : 'survey/list?{?}&id=' . \reset($surveys)->getId() . '&ptype=p';
+$next     = empty($surveys) ? 'survey/list' : 'survey/list?{?}&id=' . \end($surveys)->getId() . '&ptype=n';
 
 echo $this->getData('nav')->render(); ?>
 
@@ -38,8 +38,8 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="box">
             <ul class="crumbs-2">
-                <li data-href="<?= UriFactory::build('{/prefix}survey/list?path=/Accounts/' . $accountDir); ?>"><a href="<?= UriFactory::build('{/prefix}survey/list?path=/Accounts/' . $accountDir); ?>"><i class="fa fa-home"></i></a>
-                <li data-href="<?= UriFactory::build('{/prefix}survey/list?path=/'); ?>"><a href="<?= UriFactory::build('{/prefix}survey/list?path=/'); ?>">/</a></li>
+                <li data-href="<?= UriFactory::build('survey/list?path=/Accounts/' . $accountDir); ?>"><a href="<?= UriFactory::build('survey/list?path=/Accounts/' . $accountDir); ?>"><i class="fa fa-home"></i></a>
+                <li data-href="<?= UriFactory::build('survey/list?path=/'); ?>"><a href="<?= UriFactory::build('survey/list?path=/'); ?>">/</a></li>
                 <?php
                     $subPath    = '';
                     $paths      = \explode('/', \ltrim($mediaPath, '/'));
@@ -57,7 +57,7 @@ echo $this->getData('nav')->render(); ?>
 
                         $subPath .= '/' . $paths[$i];
 
-                        $url = UriFactory::build('{/prefix}survey/list?path=' . $subPath);
+                        $url = UriFactory::build('survey/list?path=' . $subPath);
                 ?>
                     <li data-href="<?= $url; ?>"<?= $i === $length - 1 ? 'class="active"' : ''; ?>><a href="<?= $url; ?>"><?= $this->printHtml($paths[$i]); ?></a></li>
                 <?php endfor; ?>
@@ -129,7 +129,7 @@ echo $this->getData('nav')->render(); ?>
                         </label>
                 <tbody>
                 <?php if (!empty($parentPath)) :
-                    $url = UriFactory::build('{/prefix}survey/list?path=' . $parentPath);
+                    $url = UriFactory::build('survey/list?path=' . $parentPath);
                 ?>
                     <tr tabindex="0" data-href="<?= $url; ?>">
                         <td>
@@ -142,7 +142,7 @@ echo $this->getData('nav')->render(); ?>
                 <?php endif; ?>
                 <?php $count = 0;
                 foreach ($collections as $key => $value) : ++$count;
-                $url = UriFactory::build('{/prefix}survey/list?path=' . \rtrim($value->getVirtualPath(), '/') . '/' . $value->name);
+                $url = UriFactory::build('survey/list?path=' . \rtrim($value->getVirtualPath(), '/') . '/' . $value->name);
                 ?>
                 <tr data-href="<?= $url; ?>">
                     <td><label class="checkbox" for="surveyList-<?= $key; ?>">
@@ -152,13 +152,13 @@ echo $this->getData('nav')->render(); ?>
                     <td><a href="<?= $url; ?>"><i class="fa fa-folder-open-o"></i></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
                     <td>
-                    <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
+                    <td><a class="content" href="<?= UriFactory::build('profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
                     <td><a href="<?= $url; ?>"><?= $this->printHtml($value->createdAt->format('Y-m-d')); ?></a>
                 <?php endforeach; ?>
                 <?php
                     $count = 0;
                     foreach ($surveys as $key => $value) : ++$count;
-                        $url = UriFactory::build('{/prefix}survey/edit?{?}&id=' . $value->getId());
+                        $url = UriFactory::build('survey/edit?{?}&id=' . $value->getId());
                     ?>
                     <tr data-href="<?= $url; ?>">
                         <td><label class="checkbox" for="surveyList-<?= $key; ?>">
@@ -168,7 +168,7 @@ echo $this->getData('nav')->render(); ?>
                         <td>
                         <td><a href="<?= $url; ?>"><?= $value->getL11n()->title; ?></a>
                         <td>
-                        <td><a class="content" href="<?= UriFactory::build('{/prefix}profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
+                        <td><a class="content" href="<?= UriFactory::build('profile/single?{?}&for=' . $value->createdBy->getId()); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
                         <td><a href="<?= $url; ?>"><?= $value->createdAt->format('Y-m-d'); ?></a>
                 <?php endforeach; ?>
                 <?php if ($count === 0) : ?>
