@@ -107,7 +107,7 @@ final class ApiController extends Controller
         $template            = new SurveyTemplate();
         $template->start     = empty($request->getData('start')) ? null : new \DateTime($request->getData('start'));
         $template->end       = empty($request->getData('end')) ? null : new \DateTime($request->getData('end'));
-        $template->status    = $request->getData('status') ?? SurveyStatus::ACTIVE;
+        $template->status    = (int) ($request->getData('status') ?? SurveyStatus::ACTIVE);
         $template->createdBy = new NullAccount($request->header->account);
 
         $l11n = new SurveyTemplateL11n(
@@ -129,7 +129,12 @@ final class ApiController extends Controller
 
                     $internalResponse = new HttpResponse();
                     $this->app->moduleManager->get('Tag')->apiTagCreate($request, $internalResponse, null);
-                    $template->addTag($internalResponse->get($request->uri->__toString())['response']);
+
+                    if (!\is_array($data = $internalResponse->get($request->uri->__toString()))) {
+                        continue;
+                    }
+
+                    $template->addTag($data['response']);
                 } else {
                     $template->addTag(new NullTag((int) $tag['id']));
                 }
