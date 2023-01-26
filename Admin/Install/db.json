@@ -99,6 +99,16 @@
                 "type": "TEXT",
                 "null": false
             },
+            "survey_template_l11n_footer": {
+                "name": "survey_template_l11n_footer",
+                "type": "TEXT",
+                "null": false
+            },
+            "survey_template_l11n_footer_plain": {
+                "name": "survey_template_l11n_footer_plain",
+                "type": "TEXT",
+                "null": false
+            },
             "survey_template_l11n_template": {
                 "name": "survey_template_l11n_template",
                 "type": "INT",

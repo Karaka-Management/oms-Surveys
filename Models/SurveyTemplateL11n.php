@@ -75,6 +75,22 @@ class SurveyTemplateL11n implements \JsonSerializable
     public string $descriptionPlain = '';
 
     /**
+     * Description.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public string $footer = '';
+
+    /**
+     * Description.
+     *
+     * @var string
+     * @since 1.0.0
+     */
+    public string $footerPlain = '';
+
+    /**
      * Constructor.
      *
      * @param string $title            Title
