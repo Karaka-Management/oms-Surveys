@@ -85,5 +85,5 @@ final class SurveyTemplateElementMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='survey_template_element_id';
+    public const PRIMARYFIELD = 'survey_template_element_id';
 }

@@ -116,7 +116,7 @@ final class SurveyTemplateMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='survey_template_id';
+    public const PRIMARYFIELD = 'survey_template_id';
 
     /**
      * Get editor doc based on virtual path.

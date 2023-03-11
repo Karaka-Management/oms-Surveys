@@ -57,5 +57,5 @@ final class SurveyTemplateL11nMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='survey_template_l11n_id';
+    public const PRIMARYFIELD = 'survey_template_l11n_id';
 }
