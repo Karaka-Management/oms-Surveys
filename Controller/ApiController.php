@@ -6,7 +6,7 @@
  *
  * @package   Modules\Surveys
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -40,7 +40,7 @@ use phpOMS\Utils\Parser\Markdown\Markdown;
  * Api controller for the survey module.
  *
  * @package Modules\Surveys
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -105,16 +105,16 @@ final class ApiController extends Controller
     public function createSurveyTemplateFromRequest(RequestAbstract $request) : SurveyTemplate
     {
         $template            = new SurveyTemplate();
-        $template->start     = empty($request->getData('start')) ? null : new \DateTime($request->getData('start'));
-        $template->end       = empty($request->getData('end')) ? null : new \DateTime($request->getData('end'));
-        $template->status    = (int) ($request->getData('status') ?? SurveyStatus::ACTIVE);
+        $template->start     = $request->getDataDateTime('start');
+        $template->end       = $request->getDataDateTime('end');
+        $template->status    = $request->getDataInt('status') ?? SurveyStatus::ACTIVE;
         $template->createdBy = new NullAccount($request->header->account);
 
         $l11n = new SurveyTemplateL11n(
-            $request->getData('title') ?? '',
-            Markdown::parse((string) ($request->getData('description') ?? '')),
-            $request->getData('description') ?? '',
-            $request->getData('language') ?? ISO639x1Enum::_EN
+            $request->getDataString('title') ?? '',
+            Markdown::parse($request->getDataString('description') ?? ''),
+            $request->getDataString('description') ?? '',
+            $request->getDataString('language') ?? ISO639x1Enum::_EN
         );
 
         $template->setL11n($l11n);
@@ -178,7 +178,7 @@ final class ApiController extends Controller
     {
         $val = [];
         if (($val['survey'] = empty((int) ($request->getData('survey'))))
-            || ($val['type'] = !SurveyElementType::isValidValue((int) ($request->getData('type') ?? -1)))
+            || ($val['type'] = !SurveyElementType::isValidValue($request->getDataInt('type') ?? -1))
             || ($val['labels_values'] = (($lCount = \count($request->getDataJson('labels'))) > 0
                     && \count($request->getDataJson('values')) !== $lCount)
                 )
@@ -229,15 +229,15 @@ final class ApiController extends Controller
     {
         $element             = new SurveyTemplateElement();
         $element->type       = (int) $request->getData('type');
-        $element->isOptional = (bool) ($request->getData('optional') ?? false);
-        $element->order      = (int) ($request->getData('order') ?? 0);
-        $element->template   = (int) ($request->getData('survey') ?? 0);
+        $element->isOptional = $request->getDataBool('optional') ?? false;
+        $element->order      = $request->getDataInt('order') ?? 0;
+        $element->template   = $request->getDataInt('survey') ?? 0;
 
         $l11n = new SurveyTemplateElementL11n(
-            $request->getData('text') ?? '',
-            Markdown::parse((string) ($request->getData('description') ?? '')),
-            $request->getData('description') ?? '',
-            $request->getData('language') ?? ISO639x1Enum::_EN
+            $request->getDataString('text') ?? '',
+            Markdown::parse($request->getDataString('description') ?? ''),
+            $request->getDataString('description') ?? '',
+            $request->getDataString('language') ?? ISO639x1Enum::_EN
         );
 
         $element->setL11n($l11n);
@@ -246,7 +246,7 @@ final class ApiController extends Controller
         foreach ($labels as $text) {
             $label = new SurveyTemplateLabelL11n(
                 $text,
-                $request->getData('language') ?? ISO639x1Enum::_EN
+                $request->getDataString('language') ?? ISO639x1Enum::_EN
             );
 
             $element->addLabel($label);
