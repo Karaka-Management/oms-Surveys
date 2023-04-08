@@ -58,7 +58,7 @@ final class ApiController extends Controller
     private function validateSurveyTemplateCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['title'] = empty($request->getData('title')))
+        if (($val['title'] = !$request->hasData('title'))
         ) {
             return $val;
         }
@@ -269,7 +269,7 @@ final class ApiController extends Controller
     private function validateSurveyAnswerCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['survey'] = empty($request->getData('survey')))
+        if (($val['survey'] = !$request->hasData('survey'))
         ) {
             return $val;
         }
