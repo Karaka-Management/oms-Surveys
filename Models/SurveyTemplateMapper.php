@@ -27,6 +27,9 @@ use phpOMS\DataStorage\Database\Mapper\ReadMapper;
  * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
+ *
+ * @template T of SurveyTemplate
+ * @extends DataMapperFactory<T>
  */
 final class SurveyTemplateMapper extends DataMapperFactory
 {
