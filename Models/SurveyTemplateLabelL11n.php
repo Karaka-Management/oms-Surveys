@@ -32,7 +32,7 @@ class SurveyTemplateLabelL11n implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected int $id = 0;
+    public int $id = 0;
 
     /**
      * element ID.

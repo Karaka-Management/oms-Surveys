@@ -38,7 +38,7 @@ final class SurveyTemplateElementL11nTest extends \PHPUnit\Framework\TestCase
      */
     public function testDefault() : void
     {
-        self::assertEquals(0, $this->l11n->getId());
+        self::assertEquals(0, $this->l11n->id);
         self::assertEquals('', $this->l11n->text);
         self::assertEquals('', $this->l11n->description);
         self::assertEquals('', $this->l11n->descriptionPlain);

@@ -146,15 +146,15 @@ echo $this->getData('nav')->render(); ?>
                                                 foreach ($elementValues as $elementValue) :
                                                     if ($element->type === SurveyElementType::CHECKBOX) : ?>
                                                         <div class="input-control value">
-                                                            <label class="checkbox" for="i<?= $element->getId() . '-' . $this->printHtml($elementValue); ?>">
-                                                                <input id="i<?= $element->getId() . '-' . $this->printHtml($elementValue); ?>" type="checkbox" name="i<?= $element->getId() . '-' . $this->printHtml($elementValue); ?>" value="1">
+                                                            <label class="checkbox" for="i<?= $element->id . '-' . $this->printHtml($elementValue); ?>">
+                                                                <input id="i<?= $element->id . '-' . $this->printHtml($elementValue); ?>" type="checkbox" name="i<?= $element->id . '-' . $this->printHtml($elementValue); ?>" value="1">
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
                                                     <?php elseif ($element->type === SurveyElementType::RADIO) : ?>
                                                         <div class="input-control value">
-                                                            <label class="radio" for="i<?= $element->getId() . '-' . $this->printHtml($elementValue); ?>">
-                                                                <input id="i<?= $element->getId() . '-' . $this->printHtml($elementValue); ?>" type="radio" name="i<?= $element->getId(); ?>" value="<?= $this->printHtml($elementValue); ?>"<?= isset($survey) && $survey->hasPublicResult ? '' : ''; ?>>
+                                                            <label class="radio" for="i<?= $element->id . '-' . $this->printHtml($elementValue); ?>">
+                                                                <input id="i<?= $element->id . '-' . $this->printHtml($elementValue); ?>" type="radio" name="i<?= $element->id; ?>" value="<?= $this->printHtml($elementValue); ?>"<?= isset($survey) && $survey->hasPublicResult ? '' : ''; ?>>
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </div>
@@ -163,20 +163,20 @@ echo $this->getData('nav')->render(); ?>
                                              elseif ($element->type === SurveyElementType::DROPDOWN) :
                                                 $elementValues = $element->getValues();
 
-                                                echo '<select name="i' . $element->getId() . '>';
+                                                echo '<select name="i' . $element->id . '>';
                                                 $elementLabels = \array_values($element->getLabels());
                                                 foreach ($elementValues as $key => $elementValue) : ?>
                                                     <option value="<?= $this->printHtml($elementValue); ?>"><?= $this->printHtml($elementLabels[$key]->title); ?>
                                             <?php endforeach;
                                             echo '</select>';
                                             elseif ($element->type === SurveyElementType::TEXTFIELD) : ?>
-                                                <input type="text" name="i<?= $element->getId() ?>">
+                                                <input type="text" name="i<?= $element->id ?>">
                                             <?php elseif ($element->type === SurveyElementType::TEXTAREA) : ?>
-                                                <textarea name="i<?= $element->getId() ?>"></textarea>
+                                                <textarea name="i<?= $element->id ?>"></textarea>
                                             <?php elseif ($element->type === SurveyElementType::NUMERIC) : ?>
-                                                <input type="number" name="i<?= $element->getId() ?>">
+                                                <input type="number" name="i<?= $element->id ?>">
                                             <?php elseif ($element->type === SurveyElementType::DATE) : ?>
-                                                <input type="datetime-local" name="i<?= $element->getId() ?>">
+                                                <input type="datetime-local" name="i<?= $element->id ?>">
                                             <?php endif;
                                             echo '</div>'; // closing "values-section"
                                             echo '</div>'; // closing "survey-value-element"

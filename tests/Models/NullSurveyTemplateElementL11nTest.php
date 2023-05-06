@@ -37,6 +37,6 @@ final class NullSurveyTemplateElementL11nTest extends \PHPUnit\Framework\TestCas
     public function testId() : void
     {
         $null = new NullSurveyTemplateElementL11n(2);
-        self::assertEquals(2, $null->getId());
+        self::assertEquals(2, $null->id);
     }
 }

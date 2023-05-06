@@ -42,7 +42,7 @@ final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
      */
     public function testDefault() : void
     {
-        self::assertEquals(0, $this->survey->getId());
+        self::assertEquals(0, $this->survey->id);
 
         $date = new \DateTime('now');
         self::assertEquals([], $this->survey->getElements());
