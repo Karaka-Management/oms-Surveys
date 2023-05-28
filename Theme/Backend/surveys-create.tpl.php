@@ -170,13 +170,13 @@ echo $this->getData('nav')->render(); ?>
                                             <?php endforeach;
                                             echo '</select>';
                                             elseif ($element->type === SurveyElementType::TEXTFIELD) : ?>
-                                                <input type="text" name="i<?= $element->id ?>">
+                                                <input type="text" name="i<?= $element->id; ?>">
                                             <?php elseif ($element->type === SurveyElementType::TEXTAREA) : ?>
-                                                <textarea name="i<?= $element->id ?>"></textarea>
+                                                <textarea name="i<?= $element->id; ?>"></textarea>
                                             <?php elseif ($element->type === SurveyElementType::NUMERIC) : ?>
-                                                <input type="number" name="i<?= $element->id ?>">
+                                                <input type="number" name="i<?= $element->id; ?>">
                                             <?php elseif ($element->type === SurveyElementType::DATE) : ?>
-                                                <input type="datetime-local" name="i<?= $element->id ?>">
+                                                <input type="datetime-local" name="i<?= $element->id; ?>">
                                             <?php endif;
                                             echo '</div>'; // closing "values-section"
                                             echo '</div>'; // closing "survey-value-element"
