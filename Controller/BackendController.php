@@ -47,7 +47,7 @@ final class BackendController extends Controller
      */
     public function setUpBackend(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
-        $head = $response->get('Content')->getData('head');
+        $head = $response->get('Content')->head;
         $head->addAsset(AssetType::CSS, '/Modules/Surveys/Theme/Backend/styles.css?v=1.0.0');
     }
 
@@ -67,21 +67,21 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response);
 
         $path    = \str_replace('+', ' ', (string) ($request->getData('path') ?? '/'));
         $surveys = SurveyTemplateMapper::getByVirtualPath($path)
-            ->where('tags/title/language', $response->getLanguage())
-            ->where('l11n/language', $response->getLanguage())
+            ->where('tags/title/language', $response->header->l11n->language)
+            ->where('l11n/language', $response->header->l11n->language)
             ->execute();
 
         list($collection, $parent) = CollectionMapper::getCollectionsByPath($path);
 
-        $view->addData('parent', $parent);
-        $view->addData('collections', $collection);
-        $view->addData('path', $path);
-        $view->addData('surveys', $surveys);
-        $view->addData('account', $this->app->accountManager->get($request->header->account));
+        $view->data['parent'] = $parent;
+        $view->data['collections'] = $collection;
+        $view->data['path'] = $path;
+        $view->data['surveys'] = $surveys;
+        $view->data['account'] = $this->app->accountManager->get($request->header->account);
 
         return $view;
     }
@@ -102,7 +102,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response);
 
         return $view;
     }
@@ -123,7 +123,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response);
 
         /** @var \Modules\Surveys\Models\SurveyTemplate $survey */
         $survey = SurveyTemplateMapper::get()
@@ -136,13 +136,13 @@ final class BackendController extends Controller
             ->with('tags')
             ->with('tags/title')
             ->where('id', $request->getData('id'))
-            ->where('tags/title/language', $response->getLanguage())
-            ->where('l11n/language', $response->getLanguage())
-            ->where('elements/l11n/language', $response->getLanguage())
-            ->where('elements/labels/language', $response->getLanguage())
+            ->where('tags/title/language', $response->header->l11n->language)
+            ->where('l11n/language', $response->header->l11n->language)
+            ->where('elements/l11n/language', $response->header->l11n->language)
+            ->where('elements/labels/language', $response->header->l11n->language)
             ->execute();
 
-        $view->addData('survey', $survey);
+        $view->data['survey'] = $survey;
 
         return $view;
     }
@@ -163,7 +163,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-survey');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response);
 
         return $view;
     }
