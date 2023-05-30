@@ -71,8 +71,8 @@ final class BackendController extends Controller
 
         $path    = \str_replace('+', ' ', (string) ($request->getData('path') ?? '/'));
         $surveys = SurveyTemplateMapper::getByVirtualPath($path)
-            ->where('tags/title/language', $response->getLanguage())
-            ->where('l11n/language', $response->getLanguage())
+            ->where('tags/title/language', $response->header->l11n->language)
+            ->where('l11n/language', $response->header->l11n->language)
             ->execute();
 
         list($collection, $parent) = CollectionMapper::getCollectionsByPath($path);
@@ -136,10 +136,10 @@ final class BackendController extends Controller
             ->with('tags')
             ->with('tags/title')
             ->where('id', $request->getData('id'))
-            ->where('tags/title/language', $response->getLanguage())
-            ->where('l11n/language', $response->getLanguage())
-            ->where('elements/l11n/language', $response->getLanguage())
-            ->where('elements/labels/language', $response->getLanguage())
+            ->where('tags/title/language', $response->header->l11n->language)
+            ->where('l11n/language', $response->header->l11n->language)
+            ->where('elements/l11n/language', $response->header->l11n->language)
+            ->where('elements/labels/language', $response->header->l11n->language)
             ->execute();
 
         $view->addData('survey', $survey);
