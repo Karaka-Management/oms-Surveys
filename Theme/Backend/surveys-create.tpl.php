@@ -15,9 +15,9 @@ declare(strict_types=1);
 use Modules\Surveys\Models\SurveyElementType;
 
 /** @var null|Modules\Surveys\Models\SurveyTemplate $survey */
-$survey = $this->getData('survey');
+$survey = $this->data['survey'];
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="tabview tab-2">
     <div class="box wf-100 col-xs-12">
