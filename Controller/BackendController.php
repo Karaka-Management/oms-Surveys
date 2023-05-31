@@ -77,11 +77,11 @@ final class BackendController extends Controller
 
         list($collection, $parent) = CollectionMapper::getCollectionsByPath($path);
 
-        $view->data['parent'] = $parent;
+        $view->data['parent']      = $parent;
         $view->data['collections'] = $collection;
-        $view->data['path'] = $path;
-        $view->data['surveys'] = $surveys;
-        $view->data['account'] = $this->app->accountManager->get($request->header->account);
+        $view->data['path']        = $path;
+        $view->data['surveys']     = $surveys;
+        $view->data['account']     = $this->app->accountManager->get($request->header->account);
 
         return $view;
     }
