@@ -30,10 +30,8 @@ use Modules\Tag\Models\NullTag;
 use phpOMS\Localization\ISO639x1Enum;
 use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Message\FormValidation;
 use phpOMS\Utils\Parser\Markdown\Markdown;
 
 /**
@@ -82,15 +80,15 @@ final class ApiController extends Controller
     public function apiSurveyTemplateCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateSurveyTemplateCreate($request))) {
-            $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status                    = RequestStatusCode::R_400;
+            $response->header->status = RequestStatusCode::R_400;
+            $this->createInvalidCreateResponse($request, $response, $val);
 
             return;
         }
 
         $survey = $this->createSurveyTemplateFromRequest($request);
         $this->createModel($request->header->account, $survey, SurveyTemplateMapper::class, 'survey', $request->getOrigin());
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'SurveyTemplate', 'SurveyTemplate successfully created.', $survey);
+        $this->createStandardCreateResponse($request, $response, $survey);
     }
 
     /**
@@ -205,15 +203,15 @@ final class ApiController extends Controller
     public function apiSurveyTemplateElementCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateSurveyTemplateElementCreate($request))) {
-            $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status                    = RequestStatusCode::R_400;
+            $response->header->status = RequestStatusCode::R_400;
+            $this->createInvalidCreateResponse($request, $response, $val);
 
             return;
         }
 
         $element = $this->createSurveyTemplateElementFromRequest($request);
         $this->createModel($request->header->account, $element, SurveyTemplateElementMapper::class, 'element', $request->getOrigin());
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'SurveyTemplateElement', 'SurveyTemplateElement successfully created.', $element);
+        $this->createStandardCreateResponse($request, $response, $element);
     }
 
     /**
@@ -293,15 +291,15 @@ final class ApiController extends Controller
     public function apiSurveyAnswerCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateSurveyAnswerCreate($request))) {
-            $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status                    = RequestStatusCode::R_400;
+            $response->header->status = RequestStatusCode::R_400;
+            $this->createInvalidCreateResponse($request, $response, $val);
 
             return;
         }
 
         $survey = $this->createSurveyAnswerFromRequest($request);
         //$this->createModel($request->header->account, $survey, SurveyAnswerMapper::class, 'survey', $request->getOrigin());
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'SurveyAnswer', 'SurveyAnswer successfully created.', $survey);
+        $this->createStandardCreateResponse($request, $response, $survey);
     }
 
     /**
