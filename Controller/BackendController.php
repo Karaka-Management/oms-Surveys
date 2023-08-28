@@ -69,7 +69,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Surveys/Theme/Backend/surveys-list');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000801001, $request, $response);
 
-        $path    = \str_replace('+', ' ', (string) ($request->getData('path') ?? '/'));
+        $path    = \strtr($request->getDataString('path') ?? '/', '+', ' ');
         $surveys = SurveyTemplateMapper::getByVirtualPath($path)
             ->where('tags/title/language', $response->header->l11n->language)
             ->where('l11n/language', $response->header->l11n->language)
