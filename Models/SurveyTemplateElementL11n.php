@@ -48,7 +48,7 @@ class SurveyTemplateElementL11n implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected string $language = ISO639x1Enum::_EN;
+    public string $language = ISO639x1Enum::_EN;
 
     /**
      * Title.
