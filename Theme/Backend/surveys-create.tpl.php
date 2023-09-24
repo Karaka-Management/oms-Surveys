@@ -102,9 +102,9 @@ echo $this->data['nav']->render(); ?>
                                         if ($element->type === SurveyElementType::HEADLINE) {
                                             echo '<h1>' . $this->printHtml($element->getL11n()->text) . '</h1>';
 
-                                            echo !empty($element->getL11n()->description)
-                                                ? '<h2>' . $element->getL11n()->description . '</h2>'
-                                                : '';
+                                            echo empty($element->getL11n()->description)
+                                                ? ''
+                                                : '<h2>' . $element->getL11n()->description . '</h2>';
                                         } elseif ($element->type === SurveyElementType::CHECKBOX
                                             || $element->type === SurveyElementType::RADIO
                                             || $element->type === SurveyElementType::DROPDOWN
@@ -118,9 +118,9 @@ echo $this->data['nav']->render(); ?>
                                             // Question/Text section
                                             echo '<div class="question-section">';
                                             echo '<div class="question">' . $this->printHtml($element->getL11n()->text) . '</div>';
-                                            echo !empty($element->getL11n()->description)
-                                                ? '<article class="question-description">' . $element->getL11n()->description . '</article>'
-                                                : '';
+                                            echo empty($element->getL11n()->description)
+                                                ? ''
+                                                : '<article class="question-description">' . $element->getL11n()->description . '</article>';
                                             echo '</div>';
 
                                             // Value section
