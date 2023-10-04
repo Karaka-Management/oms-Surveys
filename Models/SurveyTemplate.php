@@ -94,7 +94,7 @@ class SurveyTemplate
      * @var null|SurveyTemplateL11n
      * @since 1.0.0
      */
-    protected ?SurveyTemplateL11n $l11n = null;
+    public ?SurveyTemplateL11n $l11n = null;
 
     /**
      * Path for organizing.
@@ -110,7 +110,7 @@ class SurveyTemplate
      * @var Tag[]
      * @since 1.0.0
      */
-    private array $tags = [];
+    public array $tags = [];
 
     /**
      * Elements.
@@ -118,7 +118,7 @@ class SurveyTemplate
      * @var SurveyTemplateElement[]
      * @since 1.0.0
      */
-    private array $elements = [];
+    public array $elements = [];
 
     /**
      * Media files
@@ -126,7 +126,7 @@ class SurveyTemplate
      * @var Media[]
      * @since 1.0.0
      */
-    protected array $media = [];
+    public array $media = [];
 
     /**
      * Constructor.

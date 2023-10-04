@@ -72,7 +72,7 @@ class SurveyTemplateElement
      * @var null|SurveyTemplateElementL11n
      * @since 1.0.0
      */
-    protected ?SurveyTemplateElementL11n $l11n = null;
+    public ?SurveyTemplateElementL11n $l11n = null;
 
     /**
      * Labels.
@@ -80,7 +80,7 @@ class SurveyTemplateElement
      * @var SurveyTemplateLabelL11n[]
      * @since 1.0.0
      */
-    protected array $labels = [];
+    public array $labels = [];
 
     /**
      * Values.
