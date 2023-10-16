@@ -23,7 +23,7 @@ final class NullSurveyTemplateElementL11nTest extends \PHPUnit\Framework\TestCas
 {
     /**
      * @covers Modules\Surveys\Models\NullSurveyTemplateElementL11n
-     * @group framework
+     * @group module
      */
     public function testNull() : void
     {
@@ -32,11 +32,21 @@ final class NullSurveyTemplateElementL11nTest extends \PHPUnit\Framework\TestCas
 
     /**
      * @covers Modules\Surveys\Models\NullSurveyTemplateElementL11n
-     * @group framework
+     * @group module
      */
     public function testId() : void
     {
         $null = new NullSurveyTemplateElementL11n(2);
         self::assertEquals(2, $null->id);
+    }
+
+    /**
+     * @covers Modules\Surveys\Models\NullSurveyTemplateElementL11n
+     * @group module
+     */
+    public function testJsonSerialize() : void
+    {
+        $null = new NullSurveyTemplateElementL11n(2);
+        self::assertEquals(['id' => 2], $null);
     }
 }
