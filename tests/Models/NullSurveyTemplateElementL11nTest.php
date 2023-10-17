@@ -47,6 +47,6 @@ final class NullSurveyTemplateElementL11nTest extends \PHPUnit\Framework\TestCas
     public function testJsonSerialize() : void
     {
         $null = new NullSurveyTemplateElementL11n(2);
-        self::assertEquals(['id' => 2], $null);
+        self::assertEquals(['id' => 2], $null->jsonSerialize());
     }
 }
