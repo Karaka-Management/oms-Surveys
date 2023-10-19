@@ -54,7 +54,7 @@ echo $this->data['nav']->render(); ?>
                                         <tr><td><select id="iResponsibility" name="responsibility">
                                                 <option value=""><?= $this->getHtml('Questionee'); ?>
                                                 <option value=""><?= $this->getHtml('Manager'); ?>
-                                            </select><td><span class="input"><button type="button" formaction=""><i class="fa fa-book"></i></button><input type="text" id="iPerm" name="permission"></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
+                                            </select><td><span class="input"><button type="button" formaction=""><i class="g-icon">book</i></button><input type="text" id="iPerm" name="permission"></span><td><button><?= $this->getHtml('Add', '0', '0'); ?></button>
                                     </table>
                             </div>
                             <div class="portlet-foot">
