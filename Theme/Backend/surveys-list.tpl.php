@@ -36,38 +36,6 @@ echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="box">
-            <ul class="crumbs-2">
-                <li data-href="<?= UriFactory::build('{/base}/survey/list?path=/Accounts/' . $accountDir); ?>"><a href="<?= UriFactory::build('{/base}/survey/list?path=/Accounts/' . $accountDir); ?>"><i class="g-icon">home</i></a>
-                <li data-href="<?= UriFactory::build('{/base}/survey/list?path=/'); ?>"><a href="<?= UriFactory::build('{/base}/survey/list?path=/'); ?>">/</a></li>
-                <?php
-                    $subPath    = '';
-                    $paths      = \explode('/', \ltrim($mediaPath, '/'));
-                    $length     = \count($paths);
-                    $parentPath = '';
-
-                    for ($i = 0; $i < $length; ++$i) :
-                        if ($paths[$i] === '') {
-                            continue;
-                        }
-
-                        if ($i === $length - 1) {
-                            $parentPath = $subPath === '' ? '/' : $subPath;
-                        }
-
-                        $subPath .= '/' . $paths[$i];
-
-                        $url = UriFactory::build('{/base}/survey/list?path=' . $subPath);
-                ?>
-                    <li data-href="<?= $url; ?>"<?= $i === $length - 1 ? 'class="active"' : ''; ?>><a href="<?= $url; ?>"><?= $this->printHtml($paths[$i]); ?></a></li>
-                <?php endfor; ?>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12">
         <div class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Surveys'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
@@ -128,33 +96,6 @@ echo $this->data['nav']->render(); ?>
                             <i class="filter g-icon">filter_alt</i>
                         </label>
                 <tbody>
-                <?php if (!empty($parentPath)) :
-                    $url = UriFactory::build('{/base}/survey/list?path=' . $parentPath);
-                ?>
-                    <tr tabindex="0" data-href="<?= $url; ?>">
-                        <td>
-                        <td data-label="<?= $this->getHtml('Type'); ?>"><a href="<?= $url; ?>"><i class="g-icon">folder_open</i></a>
-                        <td data-label="<?= $this->getHtml('Name'); ?>"><a href="<?= $url; ?>">..</a>
-                        <td>
-                        <td>
-                        <td>
-                        <td>
-                <?php endif; ?>
-                <?php $count = 0;
-                foreach ($collections as $key => $value) : ++$count;
-                $url = UriFactory::build('{/base}/survey/list?path=' . \rtrim($value->getVirtualPath(), '/') . '/' . $value->name);
-                ?>
-                <tr data-href="<?= $url; ?>">
-                    <td><label class="checkbox" for="surveyList-<?= $key; ?>">
-                                <input type="checkbox" id="surveyList-<?= $key; ?>" name="surveyselect">
-                                <span class="checkmark"></span>
-                            </label>
-                    <td><a href="<?= $url; ?>"><i class="g-icon">folder_open</i></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->name); ?></a>
-                    <td>
-                    <td><a class="content" href="<?= UriFactory::build('{/base}/profile/single?{?}&for=' . $value->createdBy->id); ?>"><?= $this->printHtml($this->renderUserName('%3$s %2$s %1$s', [$value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3, $value->createdBy->login ?? ''])); ?></a>
-                    <td><a href="<?= $url; ?>"><?= $this->printHtml($value->createdAt->format('Y-m-d')); ?></a>
-                <?php endforeach; ?>
                 <?php
                     $count = 0;
                     foreach ($surveys as $key => $value) : ++$count;

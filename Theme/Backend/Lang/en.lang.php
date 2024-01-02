@@ -49,4 +49,8 @@ return ['Surveys' => [
     'Type'           => 'Type',
     'User'           => 'User',
     'UserGroup'      => 'User/Group',
+    'Headline'           => 'Headline',
+    'Textfield'           => 'Textfield',
+    'Textarea'           => 'Textarea',
+    'Numeric'           => 'Numeric',
 ]];
