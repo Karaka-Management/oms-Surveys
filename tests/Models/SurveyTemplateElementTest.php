@@ -84,21 +84,21 @@ final class SurveyTemplateElementTest extends \PHPUnit\Framework\TestCase
      */
     public function testSerialize() : void
     {
-        $this->element->isOptional       = true;
-        $this->element->order            = 3;
-        $this->element->template         = 2;
+        $this->element->isOptional = true;
+        $this->element->order      = 3;
+        $this->element->template   = 2;
 
         $serialized = $this->element->jsonSerialize();
 
         self::assertEquals(
             [
-                'id'               => 0,
-                'type'             => SurveyElementType::CHECKBOX,
-                'isOptional'       => true,
-                'order'            => 3,
-                'template'         => 2,
-                'labels'           => [],
-                'values'           => [],
+                'id'         => 0,
+                'type'       => SurveyElementType::CHECKBOX,
+                'isOptional' => true,
+                'order'      => 3,
+                'template'   => 2,
+                'labels'     => [],
+                'values'     => [],
             ],
             $serialized
         );

@@ -15,8 +15,6 @@ declare(strict_types=1);
 namespace Modules\Surveys\Models;
 
 use Modules\Admin\Models\Account;
-use Modules\Media\Models\Media;
-use Modules\Tag\Models\NullTag;
 use Modules\Tag\Models\Tag;
 use phpOMS\Localization\ISO639x1Enum;
 
@@ -121,14 +119,6 @@ class SurveyTemplate
     public array $elements = [];
 
     /**
-     * Media files
-     *
-     * @var Media[]
-     * @since 1.0.0
-     */
-    public array $media = [];
-
-    /**
      * Constructor.
      *
      * @since 1.0.0
@@ -136,18 +126,6 @@ class SurveyTemplate
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable('now');
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
     }
 
     /**
@@ -173,104 +151,6 @@ class SurveyTemplate
     public function setL11n(SurveyTemplateL11n $l11n, string $lang = ISO639x1Enum::_EN) : void
     {
         $this->l11n = $l11n;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return array
-     *
-     * @since 1.0.0
-     */
-    public function getTags() : array
-    {
-        return $this->tags;
-    }
-
-    /**
-     * Get tag.
-     *
-     * @param int $id Element id
-     *
-     * @return Tag
-     *
-     * @since 1.0.0
-     */
-    public function getTag(int $id) : Tag
-    {
-        return $this->tags[$id] ?? new NullTag();
-    }
-
-    /**
-     * Add tag
-     *
-     * @param Tag $tag Tag
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function addTag(Tag $tag) : void
-    {
-        $this->tags[] = $tag;
-    }
-
-    /**
-     * Remove Tag from list.
-     *
-     * @param int $id Tag
-     *
-     * @return bool
-     *
-     * @since 1.0.0
-     */
-    public function removeTag($id) : bool
-    {
-        if (isset($this->tags[$id])) {
-            unset($this->tags[$id]);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Get all media
-     *
-     * @return Media[]
-     *
-     * @since 1.0.0
-     */
-    public function getMedia() : array
-    {
-        return $this->media;
-    }
-
-    /**
-     * Add media
-     *
-     * @param Media $media Media to add
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function addMedia(Media $media) : void
-    {
-        $this->media[] = $media;
-    }
-
-    /**
-     * Get elements
-     *
-     * @return array
-     *
-     * @since 1.0.0
-     */
-    public function getElements() : array
-    {
-        return $this->elements;
     }
 
     /**
@@ -302,7 +182,7 @@ class SurveyTemplate
             'virtualPath'     => $this->virtualPath,
             'tags'            => $this->tags,
             'elements'        => $this->elements,
-            'media'           => $this->media,
+            'media'           => $this->files,
         ];
     }
 
@@ -313,4 +193,6 @@ class SurveyTemplate
     {
         return $this->toArray();
     }
+
+    use \Modules\Media\Models\MediaListTrait;
 }

@@ -36,12 +36,12 @@ final class SurveyTemplateElementMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const COLUMNS = [
-        'survey_template_element_id'             => ['name' => 'survey_template_element_id',          'type' => 'int',      'internal' => 'id'],
-        'survey_template_element_type'           => ['name' => 'survey_template_element_type',      'type' => 'int',      'internal' => 'type'],
-        'survey_template_element_order'          => ['name' => 'survey_template_element_order',     'type' => 'int',      'internal' => 'order'],
-        'survey_template_element_optional'       => ['name' => 'survey_template_element_optional',     'type' => 'bool',      'internal' => 'isOptional'],
-        'survey_template_element_values'         => ['name' => 'survey_template_element_values',     'type' => 'Json',      'internal' => 'values'],
-        'survey_template_element_template'       => ['name' => 'survey_template_element_template',     'type' => 'int',      'internal' => 'template'],
+        'survey_template_element_id'       => ['name' => 'survey_template_element_id',          'type' => 'int',      'internal' => 'id'],
+        'survey_template_element_type'     => ['name' => 'survey_template_element_type',      'type' => 'int',      'internal' => 'type'],
+        'survey_template_element_order'    => ['name' => 'survey_template_element_order',     'type' => 'int',      'internal' => 'order'],
+        'survey_template_element_optional' => ['name' => 'survey_template_element_optional',     'type' => 'bool',      'internal' => 'isOptional'],
+        'survey_template_element_values'   => ['name' => 'survey_template_element_values',     'type' => 'Json',      'internal' => 'values'],
+        'survey_template_element_template' => ['name' => 'survey_template_element_template',     'type' => 'int',      'internal' => 'template'],
     ];
 
     /**
@@ -52,17 +52,17 @@ final class SurveyTemplateElementMapper extends DataMapperFactory
      */
     public const HAS_MANY = [
         'l11n' => [
-            'mapper'            => SurveyTemplateElementL11nMapper::class,
-            'table'             => 'survey_template_element_l11n',
-            'self'              => 'survey_template_element_l11n_element',
-            'conditional'       => true,
-            'external'          => null,
+            'mapper'      => SurveyTemplateElementL11nMapper::class,
+            'table'       => 'survey_template_element_l11n',
+            'self'        => 'survey_template_element_l11n_element',
+            'conditional' => true,
+            'external'    => null,
         ],
         'labels' => [
-            'mapper'            => SurveyTemplateLabelL11nMapper::class,
-            'table'             => 'survey_template_element_label_l11n',
-            'self'              => 'survey_template_element_label_l11n_element',
-            'external'          => null,
+            'mapper'   => SurveyTemplateLabelL11nMapper::class,
+            'table'    => 'survey_template_element_label_l11n',
+            'self'     => 'survey_template_element_label_l11n_element',
+            'external' => null,
         ],
     ];
 

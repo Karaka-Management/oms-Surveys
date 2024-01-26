@@ -91,18 +91,6 @@ class SurveyTemplateElement
     public array $values = [];
 
     /**
-     * Get id.
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
-
-    /**
      * @return SurveyTemplateElementL11n
      *
      * @since 1.0.0
@@ -177,13 +165,13 @@ class SurveyTemplateElement
     public function toArray() : array
     {
         return [
-            'id'               => $this->id,
-            'type'             => $this->type,
-            'isOptional'       => $this->isOptional,
-            'order'            => $this->order,
-            'template'         => $this->template,
-            'labels'           => $this->labels,
-            'values'           => $this->values,
+            'id'         => $this->id,
+            'type'       => $this->type,
+            'isOptional' => $this->isOptional,
+            'order'      => $this->order,
+            'template'   => $this->template,
+            'labels'     => $this->labels,
+            'values'     => $this->values,
         ];
     }
 

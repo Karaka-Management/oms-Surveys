@@ -18,7 +18,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/survey.*$' => [
+    '^.*/survey(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Surveys\Controller\BackendController:setUpBackend',
             'verb'       => RouteVerb::GET,
@@ -29,7 +29,7 @@ return [
             ],
         ],
     ],
-    '^.*/survey/list.*$' => [
+    '^.*/survey/list(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysList',
             'verb'       => RouteVerb::GET,
@@ -40,7 +40,7 @@ return [
             ],
         ],
     ],
-    '^.*/survey/create.*$' => [
+    '^.*/survey/create(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysCreate',
             'verb'       => RouteVerb::GET,
@@ -51,7 +51,7 @@ return [
             ],
         ],
     ],
-    '^.*/survey/edit.*$' => [
+    '^.*/survey/edit(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysEdit',
             'verb'       => RouteVerb::GET,
@@ -62,7 +62,7 @@ return [
             ],
         ],
     ],
-    '^.*/survey(\?.*|$)$' => [
+    '^.*/survey(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Surveys\Controller\BackendController:viewSurveysSurvey',
             'verb'       => RouteVerb::GET,

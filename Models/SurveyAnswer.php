@@ -31,25 +31,4 @@ final class SurveyAnswer
      * @since 1.0.0
      */
     public int $id = 0;
-
-    /**
-     * Constructor
-     *
-     * @since 1.0.0
-     */
-    public function __construct()
-    {
-    }
-
-    /**
-     * Get id.
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 }

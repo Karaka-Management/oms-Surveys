@@ -131,7 +131,7 @@ final class BackendController extends Controller
             ->with('elements')
             ->with('elements/l11n')
             ->with('elements/labels')
-            ->with('media')
+            ->with('files')
             ->with('l11n')
             ->with('tags')
             ->with('tags/title')

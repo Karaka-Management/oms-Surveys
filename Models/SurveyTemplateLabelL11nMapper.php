@@ -36,11 +36,11 @@ final class SurveyTemplateLabelL11nMapper extends DataMapperFactory
      * @since 1.0.0
      */
     public const COLUMNS = [
-        'survey_template_element_label_l11n_id'           => ['name' => 'survey_template_element_label_l11n_id',       'type' => 'int',    'internal' => 'id'],
-        'survey_template_element_label_l11n_title'        => ['name' => 'survey_template_element_label_l11n_title',    'type' => 'string', 'internal' => 'title', 'autocomplete' => true],
-        'survey_template_element_label_l11n_element'      => ['name' => 'survey_template_element_label_l11n_element',      'type' => 'int',    'internal' => 'element'],
-        'survey_template_element_label_l11n_order'        => ['name' => 'survey_template_element_label_l11n_order',      'type' => 'int',    'internal' => 'order'],
-        'survey_template_element_label_l11n_language'     => ['name' => 'survey_template_element_label_l11n_language', 'type' => 'string', 'internal' => 'language'],
+        'survey_template_element_label_l11n_id'       => ['name' => 'survey_template_element_label_l11n_id',       'type' => 'int',    'internal' => 'id'],
+        'survey_template_element_label_l11n_title'    => ['name' => 'survey_template_element_label_l11n_title',    'type' => 'string', 'internal' => 'title', 'autocomplete' => true],
+        'survey_template_element_label_l11n_element'  => ['name' => 'survey_template_element_label_l11n_element',      'type' => 'int',    'internal' => 'element'],
+        'survey_template_element_label_l11n_order'    => ['name' => 'survey_template_element_label_l11n_order',      'type' => 'int',    'internal' => 'order'],
+        'survey_template_element_label_l11n_language' => ['name' => 'survey_template_element_label_l11n_language', 'type' => 'string', 'internal' => 'language'],
     ];
 
     /**

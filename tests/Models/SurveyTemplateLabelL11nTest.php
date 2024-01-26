@@ -57,30 +57,20 @@ final class SurveyTemplateLabelL11nTest extends \PHPUnit\Framework\TestCase
      * @covers Modules\Surveys\Models\SurveyTemplateLabelL11n
      * @group module
      */
-    public function testLanguageInputOutput() : void
-    {
-        $this->l11n->setLanguage(ISO639x1Enum::_DE);
-        self::assertEquals(ISO639x1Enum::_DE, $this->l11n->language);
-    }
-
-    /**
-     * @covers Modules\Surveys\Models\SurveyTemplateLabelL11n
-     * @group module
-     */
     public function testSerialize() : void
     {
-        $this->l11n->title      = 'Title';
-        $this->l11n->element    = 2;
-        $this->l11n->order      = 3;
-        $this->l11n->setLanguage(ISO639x1Enum::_DE);
+        $this->l11n->title    = 'Title';
+        $this->l11n->element  = 2;
+        $this->l11n->order    = 3;
+        $this->l11n->language = ISO639x1Enum::_DE;
 
         self::assertEquals(
             [
-                'id'              => 0,
-                'title'           => 'Title',
-                'element'         => 2,
-                'order'           => 3,
-                'language'        => ISO639x1Enum::_DE,
+                'id'       => 0,
+                'title'    => 'Title',
+                'element'  => 2,
+                'order'    => 3,
+                'language' => ISO639x1Enum::_DE,
             ],
             $this->l11n->jsonSerialize()
         );

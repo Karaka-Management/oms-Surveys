@@ -106,14 +106,14 @@ echo $this->data['nav']->render(); ?>
                                 <div class="form-group">
                                     <label for="iSType"><?= $this->getHtml('Type'); ?></label>
                                     <select id="iSType" name="stype">
-                                        <option value="<?= SurveyElementType::HEADLINE; ?>"><?= $this->getHtml('Headline') ?>
-                                        <option value="<?= SurveyElementType::DROPDOWN; ?>"><?= $this->getHtml('Dropdown') ?>
-                                        <option value="<?= SurveyElementType::CHECKBOX; ?>"><?= $this->getHtml('Checkbox') ?>
-                                        <option value="<?= SurveyElementType::RADIO; ?>"><?= $this->getHtml('Radio') ?>
-                                        <option value="<?= SurveyElementType::TEXTFIELD; ?>"><?= $this->getHtml('Textfield') ?>
-                                        <option value="<?= SurveyElementType::TEXTAREA; ?>"><?= $this->getHtml('Textarea') ?>
-                                        <option value="<?= SurveyElementType::NUMERIC; ?>"><?= $this->getHtml('Numeric') ?>
-                                        <option value="<?= SurveyElementType::DATE; ?>"><?= $this->getHtml('Date') ?>
+                                        <option value="<?= SurveyElementType::HEADLINE; ?>"><?= $this->getHtml('Headline'); ?>
+                                        <option value="<?= SurveyElementType::DROPDOWN; ?>"><?= $this->getHtml('Dropdown'); ?>
+                                        <option value="<?= SurveyElementType::CHECKBOX; ?>"><?= $this->getHtml('Checkbox'); ?>
+                                        <option value="<?= SurveyElementType::RADIO; ?>"><?= $this->getHtml('Radio'); ?>
+                                        <option value="<?= SurveyElementType::TEXTFIELD; ?>"><?= $this->getHtml('Textfield'); ?>
+                                        <option value="<?= SurveyElementType::TEXTAREA; ?>"><?= $this->getHtml('Textarea'); ?>
+                                        <option value="<?= SurveyElementType::NUMERIC; ?>"><?= $this->getHtml('Numeric'); ?>
+                                        <option value="<?= SurveyElementType::DATE; ?>"><?= $this->getHtml('Date'); ?>
                                     </select>
                                 </div>
                             </div>
@@ -136,8 +136,8 @@ echo $this->data['nav']->render(); ?>
                                 <?php if (!empty($survey->getL11n()->description)) : ?>
                                     <article class="survey-description"><?= $survey->getL11n()->description; ?></article>
                                 <?php endif; ?>
-                                <?php $elements = $survey->getElements();
-                                    foreach ($elements as $element) {
+                                <?php
+                                    foreach ($survey->elements as $element) {
                                         if ($element->type === SurveyElementType::HEADLINE) {
                                             echo '<h1>' . $this->printHtml($element->getL11n()->text) . '</h1>';
 
