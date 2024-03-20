@@ -22,7 +22,7 @@ use Modules\Surveys\Models\NullSurveyTemplate;
 final class NullSurveyTemplateTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\Surveys\Models\NullSurveyTemplate
+     * @covers \Modules\Surveys\Models\NullSurveyTemplate
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullSurveyTemplateTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\NullSurveyTemplate
+     * @covers \Modules\Surveys\Models\NullSurveyTemplate
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullSurveyTemplateTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\NullSurveyTemplate
+     * @covers \Modules\Surveys\Models\NullSurveyTemplate
      * @group module
      */
     public function testJsonSerialize() : void

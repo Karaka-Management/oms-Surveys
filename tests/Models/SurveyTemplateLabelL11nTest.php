@@ -33,7 +33,7 @@ final class SurveyTemplateLabelL11nTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\SurveyTemplateLabelL11n
+     * @covers \Modules\Surveys\Models\SurveyTemplateLabelL11n
      * @group module
      */
     public function testDefault() : void
@@ -44,7 +44,7 @@ final class SurveyTemplateLabelL11nTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\SurveyTemplateLabelL11n
+     * @covers \Modules\Surveys\Models\SurveyTemplateLabelL11n
      * @group module
      */
     public function testTextInputOutput() : void
@@ -54,7 +54,7 @@ final class SurveyTemplateLabelL11nTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\SurveyTemplateLabelL11n
+     * @covers \Modules\Surveys\Models\SurveyTemplateLabelL11n
      * @group module
      */
     public function testSerialize() : void

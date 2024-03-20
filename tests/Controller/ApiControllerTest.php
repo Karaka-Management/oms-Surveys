@@ -94,7 +94,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Controller\ApiController
+     * @covers \Modules\Surveys\Controller\ApiController
      * @group module
      */
     public function testApiSurveyTemplateCreate() : void
@@ -129,7 +129,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Controller\ApiController
+     * @covers \Modules\Surveys\Controller\ApiController
      * @group module
      */
     public function testApiSurveyTemplateCreateInvalidData() : void
@@ -145,7 +145,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Controller\ApiController
+     * @covers \Modules\Surveys\Controller\ApiController
      * @group module
      */
     public function testApiSurveyTemplateElementCreate() : void
@@ -170,7 +170,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Controller\ApiController
+     * @covers \Modules\Surveys\Controller\ApiController
      * @group module
      */
     public function testApiSurveyTemplateElementCreateInvalidData() : void
@@ -186,7 +186,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Controller\ApiController
+     * @covers \Modules\Surveys\Controller\ApiController
      * @group module
      */
     public function testApiSurveyAnswerCreate() : void
@@ -204,7 +204,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Controller\ApiController
+     * @covers \Modules\Surveys\Controller\ApiController
      * @group module
      */
     public function testApiSurveyAnswerCreateInvalidData() : void

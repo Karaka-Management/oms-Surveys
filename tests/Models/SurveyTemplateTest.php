@@ -34,7 +34,7 @@ final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\SurveyTemplate
+     * @covers \Modules\Surveys\Models\SurveyTemplate
      * @group module
      */
     public function testDefault() : void
@@ -48,7 +48,7 @@ final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\SurveyTemplate
+     * @covers \Modules\Surveys\Models\SurveyTemplate
      * @group module
      */
     public function testL11nInputOutput() : void
@@ -58,7 +58,7 @@ final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Surveys\Models\SurveyTemplate
+     * @covers \Modules\Surveys\Models\SurveyTemplate
      * @group module
      */
     public function testSerialize() : void
