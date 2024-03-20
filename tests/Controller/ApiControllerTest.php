@@ -35,10 +35,10 @@ use phpOMS\System\MimeType;
 use phpOMS\Utils\TestUtils;
 
 /**
- * @testdox Modules\Surveys\tests\Controller\ApiControllerTest: Surveys api controller
- *
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Surveys\Controller\ApiController::class)]
+#[\PHPUnit\Framework\Attributes\TestDox('Modules\Surveys\tests\Controller\ApiControllerTest: Surveys api controller')]
 final class ApiControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected ApplicationAbstract $app;
@@ -93,10 +93,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    /**
-     * @covers \Modules\Surveys\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiSurveyTemplateCreate() : void
     {
         $response = new HttpResponse();
@@ -128,10 +125,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->getDataArray('')['response']->id);
     }
 
-    /**
-     * @covers \Modules\Surveys\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiSurveyTemplateCreateInvalidData() : void
     {
         $response = new HttpResponse();
@@ -144,10 +138,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Modules\Surveys\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiSurveyTemplateElementCreate() : void
     {
         $response = new HttpResponse();
@@ -169,10 +160,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->getDataArray('')['response']->id);
     }
 
-    /**
-     * @covers \Modules\Surveys\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiSurveyTemplateElementCreateInvalidData() : void
     {
         $response = new HttpResponse();
@@ -185,10 +173,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Modules\Surveys\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiSurveyAnswerCreate() : void
     {
         $response = new HttpResponse();
@@ -203,10 +188,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->getDataArray('')['response']->id);
     }
 
-    /**
-     * @covers \Modules\Surveys\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiSurveyAnswerCreateInvalidData() : void
     {
         $response = new HttpResponse();

@@ -21,6 +21,7 @@ use Modules\Surveys\Models\SurveyTemplateL11n;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Surveys\Models\SurveyTemplate::class)]
 final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
 {
     private SurveyTemplate $survey;
@@ -33,10 +34,7 @@ final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
         $this->survey = new SurveyTemplate();
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplate
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->survey->id);
@@ -47,20 +45,14 @@ final class SurveyTemplateTest extends \PHPUnit\Framework\TestCase
         self::assertEquals([], $this->survey->files);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplate
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testL11nInputOutput() : void
     {
         $this->survey->setL11n(new SurveyTemplateL11n('NewTest'));
         self::assertEquals('NewTest', $this->survey->getL11n()->title);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplate
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         $this->survey->hasPublicResult = false;

@@ -22,6 +22,7 @@ use Modules\Surveys\Models\SurveyTemplateLabelL11n;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Surveys\Models\SurveyTemplateElement::class)]
 final class SurveyTemplateElementTest extends \PHPUnit\Framework\TestCase
 {
     private SurveyTemplateElement $element;
@@ -34,10 +35,7 @@ final class SurveyTemplateElementTest extends \PHPUnit\Framework\TestCase
         $this->element = new SurveyTemplateElement();
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateElement
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->element->id);
@@ -48,40 +46,28 @@ final class SurveyTemplateElementTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\Surveys\Models\SurveyTemplateElementL11n', $this->element->getL11n());
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateElement
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testL11nInputOutput() : void
     {
         $this->element->setL11n(new SurveyTemplateElementL11n('NewTest'));
         self::assertEquals('NewTest', $this->element->getL11n()->text);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateElement
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testLabelInputOutput() : void
     {
         $this->element->addLabel(new SurveyTemplateLabelL11n());
         self::assertCount(1, $this->element->getLabels());
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateElement
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testValueInputOutput() : void
     {
         $this->element->addValue('testValue');
         self::assertCount(1, $this->element->getValues());
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateElement
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         $this->element->isOptional = true;

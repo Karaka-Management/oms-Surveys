@@ -20,6 +20,7 @@ use phpOMS\Localization\ISO639x1Enum;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Surveys\Models\SurveyTemplateL11n::class)]
 final class SurveyTemplateL11nTest extends \PHPUnit\Framework\TestCase
 {
     private SurveyTemplateL11n $l11n;
@@ -32,10 +33,7 @@ final class SurveyTemplateL11nTest extends \PHPUnit\Framework\TestCase
         $this->l11n = new SurveyTemplateL11n();
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->l11n->id);
@@ -45,30 +43,21 @@ final class SurveyTemplateL11nTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(ISO639x1Enum::_EN, $this->l11n->language);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testTextInputOutput() : void
     {
         $this->l11n->title = 'TestName';
         self::assertEquals('TestName', $this->l11n->title);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDescriptionInputOutput() : void
     {
         $this->l11n->description = 'TestContent';
         self::assertEquals('TestContent', $this->l11n->description);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\SurveyTemplateL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         $this->l11n->title            = 'Title';

@@ -19,31 +19,23 @@ use Modules\Surveys\Models\NullSurveyTemplateElementL11n;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Surveys\Models\NullSurveyTemplateElementL11n::class)]
 final class NullSurveyTemplateElementL11nTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\Surveys\Models\NullSurveyTemplateElementL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\Surveys\Models\SurveyTemplateElementL11n', new NullSurveyTemplateElementL11n());
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\NullSurveyTemplateElementL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullSurveyTemplateElementL11n(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\Surveys\Models\NullSurveyTemplateElementL11n
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullSurveyTemplateElementL11n(2);
