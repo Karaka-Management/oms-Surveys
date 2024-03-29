@@ -42,12 +42,12 @@ echo $this->data['nav']->render(); ?>
 
                                 <div class="form-group">
                                     <label for="iStart"><?= $this->getHtml('Start'); ?></label>
-                                    <input type="datetime-local" id="iStart" name="start" value="<?= $survey->start->format('Y-m-d\TH:i'); ?>" required>
+                                    <input type="datetime-local" id="iStart" name="start" value="<?= $survey->start?->format('Y-m-d\TH:i'); ?>" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="iEnd"><?= $this->getHtml('End'); ?></label>
-                                    <input type="datetime-local" id="iEnd" name="end" value="<?= $survey->end->format('Y-m-d\TH:i'); ?>" required>
+                                    <input type="datetime-local" id="iEnd" name="end" value="<?= $survey->end?->format('Y-m-d\TH:i'); ?>" required>
                                 </div>
 
                                 <div class="form-group">
