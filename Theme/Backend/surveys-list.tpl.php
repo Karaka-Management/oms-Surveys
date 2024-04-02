@@ -29,8 +29,8 @@ $accountDir = $account->id . ' ' . $account->login;
 $collections = $this->data['collections'];
 $mediaPath   = \urldecode($this->getData('path') ?? '/');
 
-$previous = empty($surveys) ? '{/base}/survey/list' : '{/base}/survey/list?{?}&id=' . \reset($surveys)->id . '&ptype=p';
-$next     = empty($surveys) ? '{/base}/survey/list' : '{/base}/survey/list?{?}&id=' . \end($surveys)->id . '&ptype=n';
+$previous = empty($surveys) ? '{/base}/survey/list' : '{/base}/survey/list?{?}&offset=' . \reset($surveys)->id . '&ptype=p';
+$next     = empty($surveys) ? '{/base}/survey/list' : '{/base}/survey/list?{?}&offset=' . \end($surveys)->id . '&ptype=n';
 
 echo $this->data['nav']->render(); ?>
 
