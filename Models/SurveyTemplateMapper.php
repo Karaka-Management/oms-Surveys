@@ -21,7 +21,7 @@ use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 use phpOMS\DataStorage\Database\Mapper\ReadMapper;
 
 /**
- * Mapper class.
+ * SurveyTemplate mapper class.
  *
  * @package Modules\Surveys\Models
  * @license OMS License 2.0

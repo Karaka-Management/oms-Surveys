@@ -17,7 +17,7 @@ namespace Modules\Surveys\Models;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
- * Mapper class.
+ * SurveyTemplateElement mapper class.
  *
  * @package Modules\Surveys\Models
  * @license OMS License 2.0
