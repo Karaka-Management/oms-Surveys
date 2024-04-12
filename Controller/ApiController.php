@@ -119,17 +119,17 @@ final class ApiController extends Controller
             $template->tags = $this->app->moduleManager->get('Tag', 'Api')->createTagsFromRequest($request);
         }
 
-        if (!empty($uploadedFiles = $request->files)) {
+        if (!empty($request->files)) {
             $uploaded = $this->app->moduleManager->get('Media', 'Api')->uploadFiles(
-                [],
-                [],
-                $uploadedFiles,
-                $request->header->account,
-                __DIR__ . '/../../../Modules/Media/Files/Modules/Surveys',
-                '/Modules/Surveys',
+                names:       [],
+                fileNames:   [],
+                files:       $request->files,
+                account:     $request->header->account,
+                basePath:    __DIR__ . '/../../../Modules/Media/Files/Modules/Surveys',
+                virtualPath: '/Modules/Surveys',
             );
 
-            foreach ($uploaded as $media) {
+            foreach ($uploaded->sourcess as $media) {
                 $template->files[] = $media;
             }
         }
