@@ -115,9 +115,11 @@ final class ApiController extends Controller
 
         $template->setL11n($l11n);
 
+        /*
         if ($request->hasData('tags')) {
             $template->tags = $this->app->moduleManager->get('Tag', 'Api')->createTagsFromRequest($request);
         }
+        */
 
         if (!empty($request->files)) {
             $uploaded = $this->app->moduleManager->get('Media', 'Api')->uploadFiles(
