@@ -27,7 +27,7 @@ $accountDir = $account->id . ' ' . $account->login;
 
 /** @var \Modules\Media\Models\Collection[] */
 $collections = $this->data['collections'];
-$mediaPath   = \urldecode($this->getData('path') ?? '/');
+$mediaPath   = \urldecode($this->data['path'] ?? '/');
 
 $previous = empty($surveys) ? '{/base}/survey/list' : '{/base}/survey/list?{?}&offset=' . \reset($surveys)->id . '&ptype=p';
 $next     = empty($surveys) ? '{/base}/survey/list' : '{/base}/survey/list?{?}&offset=' . \end($surveys)->id . '&ptype=n';
